@@ -1,0 +1,26 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：從上往下看凹槽的一個角。左：圖面畫尖角，圓刀碰不到角落；中：圓角等於刀的半徑；右：在角落加清角，方形零件的角可以塞到底">
+<text x="20" y="28" class="f-h">從上往下看凹槽的一個角落</text>
+<text x="40" y="62" class="f-lab">① 圖面畫尖角</text>
+<path d="M40,300 L40,90 L230,90" class="f-a"/>
+<path d="M40,90 L80,90 A40,40 0 0,0 40,130 Z" class="f-hold"/>
+<circle cx="80" cy="130" r="40" class="f-out"/>
+<circle cx="80" cy="130" r="3" class="f-ka"/>
+<text x="130" y="135" class="f-lab">圓刀碰不到角落</text>
+<text x="130" y="153" class="f-lab">（黃色那塊切不到）</text>
+<text x="40" y="200" class="f-note">要尖角只能換很小的刀，</text>
+<text x="40" y="216" class="f-note">或用放電加工，又慢又貴</text>
+<text x="290" y="62" class="f-lab">② 圓角 = 刀的半徑</text>
+<path d="M290,300 L290,130 A40,40 0 0,1 330,90 L480,90" class="f-b"/>
+<circle cx="330" cy="130" r="40" class="f-out" opacity=".5"/>
+<line x1="330" y1="130" x2="301.7" y2="101.7" class="f-s"/>
+<text x="338" y="150" class="f-lab">R = 刀的半徑</text>
+<text x="290" y="200" class="f-note">圓角畫大一點，</text>
+<text x="290" y="216" class="f-note">就能用大刀切得快</text>
+<text x="530" y="62" class="f-lab">③ 需要尖角：加清角</text>
+<path d="M530,300 L530,150 A30,30 0 0,1 530,90 L740,90" class="f-b"/>
+<rect x="552" y="112" width="160" height="160" class="f-hold"/>
+<text x="580" y="200" class="f-lab">方形零件</text>
+<text x="580" y="218" class="f-lab">的角塞得到底</text>
+<text x="530" y="296" class="f-note">角落多挖一個 U 形缺口</text>
+<text x="20" y="322" class="f-note">示意，非真實尺寸</text>
+</svg>

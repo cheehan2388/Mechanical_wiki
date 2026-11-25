@@ -13,17 +13,19 @@ updated: 2026-11-25
 
 | 概念 | 出現在哪些來源 | 次數 | 狀態 |
 |---|---|---|---|
-| 內角圓角、清角 | hubs-cost-2026 | 1 | 等第二份 |
-| 凹槽深度 | hubs-cost-2026 | 1 | 等第二份 |
-| 薄牆 | hubs-cost-2026 | 1 | 等第二份 |
+| 內角圓角、清角 | hubs-cost-2026、protolabs-cost-2026 | 2 | 已拆 [[internal-corner-radius]]；要找 Protolabs 集團以外的來源 |
+| 凹槽深度 | hubs-cost-2026、protolabs-cost-2026 | 2 | 已拆 [[cavity-depth]] |
+| 薄牆 | hubs-cost-2026、protolabs-cost-2026 | 2 | 已拆 [[thin-wall]]（含細高特徵） |
 | 螺紋長度、標準孔徑 | hubs-cost-2026 | 1 | 等第二份 |
 | 公差 | hubs-cost-2026 | 1 | 等第二份 |
 | 裝夾次數、拆件 | hubs-cost-2026 | 1 | 等第二份 |
-| 細高特徵 | hubs-cost-2026 | 1 | 等第二份 |
-| 文字與刻字 | hubs-cost-2026 | 1 | 等第二份 |
-| 材料可切削性、材料價格 | hubs-cost-2026 | 1 | 等第二份 |
+| 文字與刻字 | hubs-cost-2026、protolabs-cost-2026 | 2 | 可拆，但這輪已新增 5 頁（上限），下一輪再做 |
+| 材料可切削性、材料價格 | hubs-cost-2026、protolabs-cost-2026 | 2 | 已拆 [[machinability]] |
 | 表面處理 | hubs-cost-2026 | 1 | 等第二份 |
 | 毛胚尺寸 | hubs-cost-2026 | 1 | 等第二份 |
+| 去毛邊、外側倒角 | protolabs-cost-2026 | 1 | 等第二份 |
+| 殘留應力 | protolabs-cost-2026 | 1 | 等第二份 |
+| 放電加工（EDM） | protolabs-cost-2026 | 1 | 等第二份 |
 | 量產攤提開機成本 | hubs-cost-2026 | 1 | 等第二份 |
 
 ## 之後的主題

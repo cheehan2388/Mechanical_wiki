@@ -27,3 +27,17 @@ updated: 2026-11-25
 頁數：sources 1、parts 0、processes 1、concepts 0、cases 0
 健檢通過
 ```
+
+## 2026-11-25 #2 收錄 protolabs-cost-2026（Protolabs〈How to Reduce CNC Machining Costs〉）
+
+- 讀：網頁全文文字；圖只讀到圖說。
+- 新增：[[protolabs-cost-2026]]、[[end-mill]]（零件頁，兩份來源都直接談刀）、[[internal-corner-radius]]、[[cavity-depth]]、[[thin-wall]]、[[machinability]]，圖 `corner-radius`、`cavity-depth`。
+- 更新：[[cnc-milling]]（加第二份來源、連到新概念頁）、[[cnc-cost-guide]]、[[todo]]。
+- 分支判斷：4 個概念出現在 2 份來源，拆頁；「細高特徵」併進 [[thin-wall]]（兩者是同一個原因：會晃）。「文字與刻字」也到 2 份，但這輪已新增 5 個非來源頁（AGENTS.md 第 6 節的上限），先留在待辦。
+- **可信度**：Hubs 現在屬於 Protolabs 集團，兩份來源不算完全獨立 → 在概念頁註明，並記進待辦要找別家的資料。
+- 第 1 次檢查失敗 1 項：log.md 沒有 protolabs-cost-2026 的收錄紀錄；另有 1 個警告：沒有頁面連到 machinability → 補這一筆紀錄，並從 cnc-milling、導覽頁連過去。
+- 第 2 次檢查：
+```
+頁數：sources 2、parts 1、processes 1、concepts 4、cases 0
+健檢通過
+```

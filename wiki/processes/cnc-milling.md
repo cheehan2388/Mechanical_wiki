@@ -2,7 +2,7 @@
 title: CNC 銑削
 type: process
 aliases: [銑削, 銑床, CNC milling, milling, 加工中心, MC, CNC]
-sources: [hubs-cost-2026]
+sources: [hubs-cost-2026, protolabs-cost-2026]
 updated: 2026-11-25
 ---
 
@@ -32,18 +32,28 @@ updated: 2026-11-25
 
 ## 規格怎麼讀
 
-圖面上跟銑削成本最有關的幾個數字：內角的圓角半徑、凹槽深度、牆厚、孔徑與螺紋長度、公差、表面處理。每一項的規則見 [[cnc-cost-guide]] 的總表。
+圖面上跟銑削成本最有關的幾個數字，每一項都有自己的頁：
+
+- 內角的圓角半徑：[[internal-corner-radius]]
+- 凹槽深度：[[cavity-depth]]
+- 牆厚：[[thin-wall]]
+- 材料：[[machinability]]
+- 孔徑與螺紋長度、公差、表面處理：還在收集第二份來源（見 [[todo]]）
 
 ## 出問題怎麼認
 
 - 牆太薄：切的時候變形或斷掉（[[hubs-cost-2026]] 第 3 招）。
 - 細高的特徵：切的時候會振動，尺寸做不準（第 8 招）。
+- 深槽、深牆：原料的殘留應力釋放，零件切完會走樣（[[protolabs-cost-2026]]）。
+- 圖面畫尖的內角：收到的零件角落是圓的，這是刀的形狀，不是做錯（[[internal-corner-radius]]）。
 
 ## 證據
 
 - [[hubs-cost-2026]]：14 招的成本規則，幾乎都是針對銑削。
+- [[protolabs-cost-2026]]：加工廠自己寫的六招，重點在清角、薄牆、材料替代。
 
 ## 相關頁面
 
 - [[hubs-cost-2026]]：銑削為什麼貴、怎麼省
+- [[end-mill]]：銑削用的刀
 - [[cnc-cost-guide]]：CNC 省錢篇的閱讀順序

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：從側面切開看凹槽。左邊淺槽用短刀，很穩；右邊深槽要用伸很長的刀，容易晃">
+<text x="20" y="28" class="f-h">從側面切開看凹槽</text>
+<text x="60" y="60" class="f-lab">淺槽：刀伸出短，穩</text>
+<path d="M40,200 L120,200 L120,240 L220,240 L220,200 L300,200 L300,300 L40,300 Z" class="f-out"/>
+<rect x="150" y="110" width="40" height="128" rx="3" class="f-in"/>
+<rect x="140" y="80" width="60" height="30" class="f-ka"/>
+<text x="232" y="226" class="f-note">深度小</text>
+<text x="420" y="60" class="f-lab">深槽：刀伸很長，容易晃</text>
+<path d="M400,110 L520,110 L520,280 L600,280 L600,110 L720,110 L720,300 L400,300 Z" class="f-out"/>
+<path d="M552,80 C546,130 566,180 552,230 C546,250 560,265 556,278" class="f-b" stroke-width="18" stroke-linecap="round" opacity=".55"/>
+<rect x="530" y="50" width="60" height="30" class="f-ka"/>
+<text x="610" y="160" class="f-lab">刀晃 → 只能</text>
+<text x="610" y="178" class="f-lab">慢慢切、尺寸不準</text>
+<line x1="740" y1="110" x2="740" y2="280" class="f-band"/>
+<text x="700" y="200" class="f-note" text-anchor="end"></text>
+<text x="20" y="330" class="f-note">示意，非真實尺寸。規則：深度最多約為槽最大 XY 尺寸的 4 倍；刀最舒服的工作深度約是刀徑的 2–3 倍（Hubs）</text>
+</svg>
