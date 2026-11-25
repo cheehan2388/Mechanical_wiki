@@ -2,7 +2,7 @@
 title: CNC 省錢篇：零件到底貴在哪裡
 type: overview
 aliases: [CNC 省錢, 導覽, 降低成本, DFM]
-sources: [hubs-cost-2026, protolabs-cost-2026]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
 updated: 2026-11-25
 ---
 
@@ -15,6 +15,9 @@ updated: 2026-11-25
 1. 先看 CNC 怎麼切：[[cnc-milling]]
 2. 成本從哪裡來：[[hubs-cost-2026]] 的四個成本來源
 3. 刀的形狀決定了一切：[[end-mill]] → [[internal-corner-radius]] → [[cavity-depth]] → [[thin-wall]]
-4. 材料：[[machinability]]
+4. 孔與螺紋：[[hole-thread]]
+5. 圖面上的數字：[[tolerance]]
+6. 翻面與拆件：[[machine-setup]]
+7. 材料、表面處理、數量：[[machinability]]、[[surface-finish]]、[[batch-size]]
 
 （收錄更多來源後，這裡會補上總表。）

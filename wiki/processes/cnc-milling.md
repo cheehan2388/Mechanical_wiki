@@ -2,7 +2,7 @@
 title: CNC 銑削
 type: process
 aliases: [銑削, 銑床, CNC milling, milling, 加工中心, MC, CNC]
-sources: [hubs-cost-2026, protolabs-cost-2026]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
 updated: 2026-11-25
 ---
 
@@ -28,7 +28,10 @@ updated: 2026-11-25
 
 ## 為什麼選它
 
-這一段要等更多來源才寫得完整（例如跟車削、3D 列印比）。目前 [[hubs-cost-2026]] 只說明了銑削的成本從哪裡來：加工時間、開機成本、難做的形狀、材料。
+這一段要等更多來源才寫得完整（例如跟車削、3D 列印比）。目前的來源說明了：
+
+- 銑削的成本從哪裡來：加工時間、開機成本、難做的形狀、材料（[[hubs-cost-2026]]）。加工時間常常是最大的一項（[[xometry-cost-2020]]）。
+- **銑削 vs. 板金**：牆很薄的零件，改用板金通常比較划算（[[xometry-cost-2020]]）。
 
 ## 規格怎麼讀
 
@@ -38,7 +41,11 @@ updated: 2026-11-25
 - 凹槽深度：[[cavity-depth]]
 - 牆厚：[[thin-wall]]
 - 材料：[[machinability]]
-- 孔徑與螺紋長度、公差、表面處理：還在收集第二份來源（見 [[todo]]）
+- 孔徑與螺紋長度：[[hole-thread]]
+- 公差：[[tolerance]]
+- 要翻面幾次：[[machine-setup]]
+- 表面處理：[[surface-finish]]
+- 訂幾件：[[batch-size]]
 
 ## 出問題怎麼認
 
@@ -51,6 +58,7 @@ updated: 2026-11-25
 
 - [[hubs-cost-2026]]：14 招的成本規則，幾乎都是針對銑削。
 - [[protolabs-cost-2026]]：加工廠自己寫的六招，重點在清角、薄牆、材料替代。
+- [[xometry-cost-2020]]：另一家公司的十招，和前兩份大致一致，多談了孔與攻牙。
 
 ## 相關頁面
 

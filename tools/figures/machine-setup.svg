@@ -1,0 +1,21 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：零件兩面都有孔時，第一次裝夾做上面的孔，拆下翻面，第二次裝夾再做另一面的孔">
+<defs><marker id="ms-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-ka"/></marker></defs>
+<text x="20" y="28" class="f-h">兩面都有孔 → 要裝夾兩次（刀只能從上面下來）</text>
+<text x="60" y="62" class="f-lab">第 1 次裝夾：做上面的孔</text>
+<rect x="60" y="170" width="220" height="60" class="f-out"/>
+<rect x="105" y="170" width="18" height="30" class="f-hold"/><rect x="215" y="170" width="18" height="30" class="f-hold"/>
+<rect x="60" y="230" width="220" height="16" class="f-ka"/><rect x="40" y="185" width="20" height="45" class="f-ka"/><rect x="280" y="185" width="20" height="45" class="f-ka"/>
+<rect x="105" y="80" width="18" height="80" class="f-in"/>
+<text x="60" y="270" class="f-note">黑色是夾具（虎鉗）</text>
+<path d="M320,200 C360,150 400,150 440,200" class="f-a" marker-end="url(#ms-ar)"/>
+<text x="330" y="140" class="f-lab">停機、拆下、翻面</text>
+<text x="330" y="158" class="f-lab">重新夾、重新對位</text>
+<text x="470" y="62" class="f-lab">第 2 次裝夾：做另一面的孔</text>
+<rect x="470" y="170" width="220" height="60" class="f-out"/>
+<rect x="515" y="200" width="18" height="30" class="f-hold"/><rect x="625" y="200" width="18" height="30" class="f-hold"/>
+<rect x="570" y="170" width="18" height="30" class="f-hold"/>
+<rect x="470" y="230" width="220" height="16" class="f-ka"/><rect x="450" y="185" width="20" height="45" class="f-ka"/><rect x="690" y="185" width="20" height="45" class="f-ka"/>
+<rect x="570" y="80" width="18" height="80" class="f-in"/>
+<text x="470" y="270" class="f-note">翻過來後，原本的孔在下面</text>
+<text x="20" y="310" class="f-note">示意，非真實尺寸。每多一次裝夾：多一次人工，兩面之間的位置也多一點誤差</text>
+</svg>

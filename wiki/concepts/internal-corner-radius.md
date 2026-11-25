@@ -2,7 +2,7 @@
 title: 內角圓角與清角
 type: concept
 aliases: [內角圓角, 內R, 圓角, fillet, internal corner radius, 清角, 讓刀, corner relief, dogbone, undercut, 尖角]
-sources: [hubs-cost-2026, protolabs-cost-2026]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
 updated: 2026-11-25
 ---
 
@@ -30,7 +30,7 @@ updated: 2026-11-25
 - **大圓角 vs. 小圓角**：圓角半徑至少畫到凹槽深度的 1/3，所有內角用同一個半徑，工廠就能用大刀、不用換刀（[[hubs-cost-2026]] 第 1 招）。例：12 mm 深的槽用 5 mm 以上圓角，就能用 8 mm 的刀（[[hubs-cost-2026]]）。
 - **清角 vs. 縮小圓角**：縮小圓角得換小刀，0.8 mm 的刀只能留到 0.4 mm 的圓角，而且切不深；在每個角切 6.35 mm 寬的清角，功能上是尖角的槽可以深到約 32 mm（[[protolabs-cost-2026]]）。
 - **槽底**：槽底（往下看不到的那條邊）用 0.5 或 1 mm 的小圓角，或乾脆不加（[[hubs-cost-2026]]）。
-- 兩份來源都來自 Protolabs 集團（AGENTS.md 第 7 節），要找另一家的資料對照，已記進 [[todo]]。
+- **第三家也這樣說**：Xometry 同樣建議內角做圓角、所有內角半徑一致以免換刀；原文寫圓角的長度比直徑（L:D）保持在 3:1 以內，但沒說 L 和 D 各指什麼（[[xometry-cost-2020]] 第 1 招）。前兩份來源都屬於 Protolabs 集團，Xometry 是另一家公司，可以當獨立的對照。
 
 ## 例子
 
@@ -41,7 +41,7 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
 
 ## 相關頁面
 

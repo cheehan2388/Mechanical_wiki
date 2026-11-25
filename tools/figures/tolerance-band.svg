@@ -1,0 +1,18 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：公差像停車格。上面是寬的公差帶，下面是窄的公差帶；做出來的尺寸落在帶子裡就合格，帶子越窄越難、越貴">
+<text x="20" y="28" class="f-h">公差像停車格：尺寸落在格子裡就合格</text>
+<text x="40" y="70" class="f-lab">寬的公差（例如 ±0.1）</text>
+<rect x="230" y="50" width="300" height="40" class="f-hold"/>
+<line x1="380" y1="44" x2="380" y2="96" class="f-band"/>
+<line x1="230" y1="50" x2="230" y2="90" class="f-a"/><line x1="530" y1="50" x2="530" y2="90" class="f-a"/>
+<circle cx="300" cy="70" r="7" class="f-kb"/><circle cx="410" cy="70" r="7" class="f-kb"/><circle cx="490" cy="70" r="7" class="f-kb"/>
+<text x="545" y="75" class="f-lab">好停：照平常速度切</text>
+<text x="40" y="170" class="f-lab">窄的公差（例如 ±0.02）</text>
+<rect x="350" y="150" width="60" height="40" class="f-hold"/>
+<line x1="380" y1="144" x2="380" y2="196" class="f-band"/>
+<line x1="350" y1="150" x2="350" y2="190" class="f-a"/><line x1="410" y1="150" x2="410" y2="190" class="f-a"/>
+<circle cx="370" cy="170" r="7" class="f-kb"/><circle cx="300" cy="170" r="7" class="f-ka"/><circle cx="470" cy="170" r="7" class="f-ka"/>
+<text x="425" y="175" class="f-lab">難停：要慢慢切、多量幾次</text>
+<text x="250" y="215" class="f-note">黑點：超出格子，不合格</text>
+<text x="380" y="240" class="f-tick" text-anchor="middle">圖面上的尺寸（例如 50）</text>
+<text x="20" y="290" class="f-note">示意，非真實尺寸。藍點是合格的零件，黑點是不合格的零件</text>
+</svg>

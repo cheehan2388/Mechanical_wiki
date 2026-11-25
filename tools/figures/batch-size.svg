@@ -1,0 +1,15 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：每件單價隨件數下降。開機成本固定，件數越多，每件分到的越少，曲線先急降再變平">
+<text x="20" y="28" class="f-h">每件的價格 = 開機成本 ÷ 件數 ＋ 每件的加工費</text>
+<line x1="90" y1="270" x2="720" y2="270" class="f-zero"/><line x1="90" y1="50" x2="90" y2="270" class="f-zero"/>
+<rect x="90" y="225" width="630" height="45" class="f-hold"/>
+<text x="600" y="255" class="f-lab">每件的加工費（不會變少）</text>
+<path d="M100,60 C115,150 135,190 170,207 C230,218 330,222 450,224 C560,225 640,225 715,225" class="f-b" stroke-width="3"/>
+<circle cx="100" cy="60" r="6" class="f-kb"/>
+<text x="112" y="62" class="f-lab">做 1 件：開機成本全算在它身上</text>
+<circle cx="170" cy="207" r="6" class="f-kb"/>
+<text x="180" y="196" class="f-lab">多做幾件，單價很快掉下來</text>
+<text x="520" y="214" class="f-lab">再多，降幅就變小</text>
+<text x="40" y="160" class="f-tick" transform="rotate(-90 40 160)" text-anchor="middle">每件價格</text>
+<text x="405" y="295" class="f-tick" text-anchor="middle">件數 →</text>
+<text x="20" y="322" class="f-note">示意，非真實資料</text>
+</svg>

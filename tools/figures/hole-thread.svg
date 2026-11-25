@@ -1,0 +1,19 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：左邊是通孔，右邊是盲孔。盲孔的螺紋長度約 3 倍孔徑就夠，底部留一段不攻牙">
+<text x="20" y="28" class="f-h">從側面切開看孔</text>
+<text x="60" y="62" class="f-lab">通孔：穿過去</text>
+<rect x="40" y="80" width="90" height="200" class="f-out"/><rect x="170" y="80" width="90" height="200" class="f-out"/>
+<path d="M130,90 l40,10 M130,110 l40,10 M130,130 l40,10 M130,150 l40,10 M130,170 l40,10 M130,190 l40,10 M130,210 l40,10 M130,230 l40,10 M130,250 l40,10" class="f-s"/>
+<text x="40" y="300" class="f-note">鐵屑從下面掉出去，好做</text>
+<text x="420" y="62" class="f-lab">盲孔：有底</text>
+<path d="M400,80 L490,80 L490,250 L510,272 L530,250 L530,80 L620,80 L620,290 L400,290 Z" class="f-out"/>
+<path d="M490,90 l40,10 M490,110 l40,10 M490,130 l40,10 M490,150 l40,10 M490,170 l40,10 M490,190 l40,10" class="f-s"/>
+<rect x="490" y="205" width="40" height="45" class="f-hold"/>
+<line x1="640" y1="80" x2="640" y2="200" class="f-a"/><line x1="632" y1="80" x2="648" y2="80" class="f-a"/><line x1="632" y1="200" x2="648" y2="200" class="f-a"/>
+<text x="655" y="135" class="f-lab">螺紋長度</text>
+<text x="655" y="153" class="f-lab">約 3 倍孔徑就夠</text>
+<text x="655" y="230" class="f-lab">底部留一段</text>
+<text x="655" y="248" class="f-lab">不攻牙</text>
+<text x="420" y="310" class="f-note">底部尖尖的是鑽頭留下的錐形</text>
+<text x="20" y="318" class="f-note"></text>
+<text x="300" y="300" class="f-note">示意，非真實尺寸</text>
+</svg>

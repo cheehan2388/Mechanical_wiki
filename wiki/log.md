@@ -41,3 +41,18 @@ updated: 2026-11-25
 頁數：sources 2、parts 1、processes 1、concepts 4、cases 0
 健檢通過
 ```
+
+## 2026-11-25 #3 收錄 xometry-cost-2020（Xometry〈How to Reduce CNC Machining Costs〉）
+
+- 讀：網頁全文文字；沒有看圖。
+- 新增：[[xometry-cost-2020]]、[[tolerance]]、[[machine-setup]]、[[hole-thread]]、[[batch-size]]、[[surface-finish]]（各 2–3 份來源），圖 `tolerance-band`、`machine-setup`、`hole-thread`、`batch-size`。
+- 更新：[[internal-corner-radius]]、[[cavity-depth]]、[[thin-wall]]、[[machinability]]、[[cnc-milling]]、[[cnc-cost-guide]]、[[todo]]。
+- **找到矛盾**：凹槽深度的「4 倍」，Hubs 寫成深度 ≤ 4 × XY 尺寸，Xometry 寫成長度 ≤ 4 × 深度，方向相反 → 兩個都照原文寫進 [[cavity-depth]]，不自己選一個。
+- **可信度**：Xometry 是 Protolabs 集團以外的公司，內角圓角的「只有同一家」問題解決，從待辦移除。三家的標準公差換算後幾乎一樣（±0.125、±0.13、±0.127 mm）。
+- 分支判斷：EDM／線切割到 2 份，但這輪已新增 5 頁，留在待辦。
+- 第 1 次檢查失敗 1 項：log.md 沒有 xometry-cost-2020 的收錄紀錄；3 個警告：batch-size、hole-thread、surface-finish 沒有頁面連到 → 補紀錄，從 cnc-milling 的「規格怎麼讀」和導覽頁連過去。
+- 第 2 次檢查：
+```
+頁數：sources 3、parts 1、processes 1、concepts 9、cases 0
+健檢通過
+```

@@ -2,7 +2,7 @@
 title: 材料好不好切（可切削性）
 type: concept
 aliases: [可切削性, 切削性, 被削性, machinability, 材料選擇, 6061, 304, 黃銅, POM]
-sources: [hubs-cost-2026, protolabs-cost-2026]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
 updated: 2026-11-25
 ---
 
@@ -28,6 +28,7 @@ updated: 2026-11-25
 - **好切的塑膠**：POM（Delrin）最好切，ABS 其次；PEEK、尼龍 6 比較難（[[hubs-cost-2026]]）。比較軟的塑膠尺寸容易不穩、切口會牽絲（[[protolabs-cost-2026]]）。
 - **材料費**：同樣 150×150×25 mm 的板，6061 鋁約 25 美元、304 不鏽鋼約 90 美元、PEEK 約 300 美元（[[hubs-cost-2026]] 第 11 招）。
 - **替代材料**：17-4 PH 不鏽鋼很難切，不需要那麼強、那麼耐蝕時可改 316L 或 304；銅很貴，鋁的導電度約是銅的 60%，又輕又便宜（[[protolabs-cost-2026]]）。
+- **軟一點的金屬**：6061 鋁原料便宜、切得快、刀磨得少；硬材料要更貴的刀，刀也更常斷。6061 太軟的話，可以考慮好切的低碳鋼（[[xometry-cost-2020]] 第 7 招）。
 - **好切但貴 vs. 便宜但難切**：303 不鏽鋼比 304 好切，但板材貴（150 vs. 90 美元，[[hubs-cost-2026]]）。量少時材料費比較重要；量大時，加工時間省下來的錢才會贏過去（[[hubs-cost-2026]] 第 11 招）。
 
 ## 例子
@@ -36,9 +37,10 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
 
 ## 相關頁面
 
 - [[cnc-milling]]：材料好不好切，直接影響銑削的時間
+- [[batch-size]]：數量多寡會改變材料怎麼選
 - [[cnc-cost-guide]]：其他省錢規則
