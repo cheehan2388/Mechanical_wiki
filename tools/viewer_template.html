@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>開心的機械 Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&family=STIX+Two+Text&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 現場的工作筆記本：冷靜、清楚，像一本整理好的加工手冊
+   IDEA: 一本帳簿：每一頁都在回答「錢從誰流到誰」
+   PICTURE: 首頁的總覽表本身就是主角；頂部一條黃色標記寫出核心問題
+   COLOUR and TYPE: 白底、墨色 #101418、只在核心問題與類型標籤用黃 #ffd84a；Manrope + Noto Sans TC
+   LAYOUT: 左側固定目錄，右側閱讀欄 72ch；窄螢幕時目錄收成可展開的列 */
+:root{color-scheme:light dark;
+  --bg:light-dark(#ffffff,#101418);--ink:light-dark(#101418,#e8ecf0);--muted:light-dark(#5b6670,#9aa6b1);
+  --line:light-dark(#e3e7eb,#26303a);--side:light-dark(#f5f7f9,#151b21);--hl:#ffd84a;--hl-ink:#101418;
+  --link:light-dark(#1f4fd1,#8fb2ff);--chip:light-dark(#eef1f4,#1e2630)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Manrope","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;overflow-x:clip}
+a{color:var(--link)}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:18px max(4vw,16px);border-bottom:1px solid var(--line)}
+.top h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.top h1 a{color:inherit;text-decoration:none}
+.q{background:var(--hl);color:var(--hl-ink);padding:2px 10px;border-radius:3px;font-weight:700;font-size:15px}
+.counts{margin-left:auto;color:var(--muted);font-size:13px}
+.sitehome{font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap}
+.sitehome:hover{background:var(--chip)}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1240px}
+nav{background:var(--side);border-right:1px solid var(--line);padding:18px 16px 40px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav h2{font-size:13px;color:var(--muted);margin:18px 0 6px;font-weight:700}
+nav h2:first-child{margin-top:0}
+nav a{display:block;padding:7px 10px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.35}
+nav a:hover{background:var(--chip)}
+nav a[aria-current=page]{background:var(--ink);color:var(--bg)}
+nav a:focus-visible,.wl:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+main{padding:28px max(4vw,16px) 80px}
+article{max-width:980px}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:6px}
+.chip{background:var(--hl);color:var(--hl-ink);border-radius:3px;padding:1px 8px;font-weight:700}
+article h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 18px;text-wrap:balance;letter-spacing:-.015em}
+article h2{font-size:20px;margin:34px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+article h2:first-of-type{border-top:0;padding-top:0}
+article h3{font-size:16px;margin:22px 0 6px}
+article p,article li{max-width:70ch}
+article blockquote{margin:14px 0;padding:8px 16px;border-left:4px solid var(--hl);background:var(--side)}
+article code{background:var(--chip);padding:1px 5px;border-radius:4px;font-size:.9em;overflow-wrap:anywhere}
+article pre{background:var(--side);padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.5}
+article pre code{background:none;padding:0}
+.scroll{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;font-size:14.5px;line-height:1.5;width:100%;min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:700;border-bottom:2px solid var(--ink);white-space:nowrap}
+.wl{text-decoration:none;border-bottom:1px solid currentColor}
+.back{margin-top:44px;padding:16px 18px;background:var(--side);border-radius:8px;font-size:15px}
+.back b{display:block;margin-bottom:6px}
+.back a{margin-right:14px;white-space:nowrap}
+.maybe{margin-top:12px;background:none;border:1px dashed var(--line)}
+.hint2{display:block;font-size:13px;color:var(--muted);margin:-2px 0 6px}
+.mnav{display:none}
+math{font-family:"STIX Two Math","Cambria Math","Latin Modern Math","Noto Sans Math",math;font-size:1.12em}
+.mathblock{margin:14px 0;padding:12px 16px;background:var(--side);border-radius:8px;overflow-x:auto;text-align:center}
+.mathblock math{font-size:1.22em}
+td math{font-size:1.32em;white-space:nowrap}
+.sub{color:var(--muted);font-weight:600;font-size:15px}
+.nl{color:var(--muted)}
+.fig{margin:22px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.fig{overflow-x:auto}.fig-svg{width:100%;min-width:560px;height:auto;display:block;font-family:inherit}
+.f-h{font-size:14px;font-weight:700;fill:var(--ink)}
+.f-lab{font-size:13px;fill:var(--ink)}.f-tick{font-size:12px;fill:var(--muted)}
+.f-note{font-size:12px;fill:var(--muted)}
+.f-a{fill:none;stroke:var(--ink);stroke-width:2}.f-b{fill:none;stroke:var(--link);stroke-width:2}
+.f-ka{fill:var(--ink)}.f-kb{fill:var(--link)}
+.f-s{fill:none;stroke:var(--ink);stroke-width:1.8}
+.f-band{stroke:var(--muted);stroke-dasharray:5 5}.f-zero{stroke:var(--muted)}
+.f-hold{fill:var(--hl);opacity:.28}
+.f-in{fill:var(--hl);stroke:var(--hl-ink);stroke-width:1.5}.f-out{fill:var(--bg);stroke:var(--ink);stroke-width:2}
+.k-dot{fill:var(--muted);opacity:.55}.k-ma{fill:none;stroke:var(--link);stroke-width:3}
+.k-kf{fill:none;stroke:#d6453d;stroke-width:3}.k-turn{stroke:var(--muted);stroke-dasharray:4 4}
+.kl text{font-size:16px;fill:var(--ink);text-anchor:middle}
+.kl .kl-t{font-size:22px;font-weight:800}.kl .kl-s{font-size:14px;fill:var(--muted);font-weight:600}
+.kl-n rect{fill:var(--bg);stroke:var(--ink);stroke-width:2.5}
+.kl-c rect{fill:var(--hl);stroke:var(--hl-ink);stroke-width:2.5}.kl-c text{fill:var(--hl-ink)}
+.kl-g rect{fill:var(--side);stroke:var(--line);stroke-width:1.5}.kl .kl-gt{font-weight:800}
+.kl-e{fill:none;stroke:var(--ink);stroke-width:2.5}.kl-head{fill:var(--ink)}
+.nb .nb-c{fill:none;stroke:var(--ink);stroke-width:3}.nb-1{fill:var(--hl);opacity:.55}.nb-2{fill:var(--hl);opacity:.22}
+.nb-ax{stroke:var(--muted);stroke-width:1.5}.nb text{font-size:14px;fill:var(--ink)}.nb .nb-big{font-size:22px;font-weight:800}
+.nb .nb-n{font-size:12px;fill:var(--muted)}
+.nf-a{fill:none;stroke:var(--ink);stroke-width:2.5}.nf-b{fill:none;stroke:var(--link);stroke-width:2.5}
+.nf-f{fill:rgba(214,69,61,.12);stroke:#d6453d;stroke-width:3.5}.nf-mid{stroke:#d6453d;stroke-dasharray:4 4}
+.nb .nf-ta{font-weight:700}.nb .nf-tb{font-weight:700;fill:var(--link)}.nb .nf-tf{font-weight:800;fill:#d6453d}
+.tl{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:6px 0 10px 14px;display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:4px 14px;max-width:none}
+.tl li::before{content:"";position:absolute;left:-25px;top:13px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.tl li.bad::before{background:#d6453d;border-color:#d6453d}.tl li.good::before{background:var(--hl);border-color:var(--hl-ink)}
+.tl b{white-space:nowrap}
+.fig-src{font-size:13px;color:var(--muted);margin:10px 0 0}
+@media(max-width:600px){.tl li{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  nav{display:none}
+  .mnav{display:block;border-bottom:1px solid var(--line);background:var(--side)}
+  .mnav summary{padding:12px max(4vw,16px);font-weight:700;cursor:pointer;min-height:44px}
+  .mnav nav{display:block;position:static;max-height:none;border:0}
+  .counts{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:no-preference){article{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(4px)}}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1><a href="#" id="homeLink">開心的機械 Wiki</a> <span class="sub" id="sub"></span></h1>
+  <span class="q">它在解決什麼問題？為什麼選它，不選別的？</span>
+  <span class="counts" id="counts"></span>
+  <a class="sitehome" id="siteHome" href="index.html">← 回網站首頁</a>
+</header>
+<details class="mnav" id="mnav"><summary>目錄</summary><nav id="nav2"></nav></details>
+<div class="wrap">
+  <nav id="nav" aria-label="Wiki 目錄"></nav>
+  <main><article id="page"></article></main>
+</div>
+<script>
+{
+const DATA = /*__DATA__*/null;
+const navHtml = DATA.nav.map(g => `<h2>${g.label}</h2>` +
+  g.items.map(i => `<a href="#${i.slug}" data-s="${i.slug}">${i.title}</a>`).join('')).join('');
+document.getElementById('nav').innerHTML = navHtml;
+document.getElementById('nav2').innerHTML = navHtml;
+document.getElementById('counts').textContent =
+  Object.entries(DATA.counts).map(([k, v]) => `${k} ${v}`).join('・');
+const TYPE = {overview:'總覽', source:'來源', process:'加工', part:'零件', concept:'概念', case:'案例'};
+document.getElementById('sub').textContent = DATA.subtitle;
+document.getElementById('homeLink').href = '#' + DATA.home;
+document.getElementById('siteHome').href = DATA.site;
+const NAMES = Object.fromEntries(DATA.nav.flatMap(g => g.items).map(i => [i.slug, i.title]));
+const title = s => NAMES[s] || (DATA.pages[s] ? DATA.pages[s].title : s);
+function show() {
+  let s = location.hash.slice(1);
+  if (!DATA.pages[s]) s = DATA.home;
+  const p = DATA.pages[s];
+  const back = p.back.length
+    ? `<div class="back"><b>連到這一頁的頁面</b>${p.back.map(b => `<a href="#${b}">${title(b)}</a>`).join('')}</div>` : '';
+  const el = document.getElementById('page');
+  const maybe = (p.maybe || []).length
+    ? `<div class="back maybe"><b>可能相關（自動）</b><span class="hint2">和這頁引用了 2 篇以上相同的來源，但還沒互相連結</span>${p.maybe.map(b => `<a href="#${b}">${title(b)}</a>`).join('')}</div>` : '';
+  el.innerHTML = `<div class="meta"><span class="chip">${TYPE[p.type] || p.type}</span><span>更新於 ${p.updated}</span></div>` +
+    `<h1>${p.title}</h1>` + p.html + back + maybe;
+  for (const t of el.querySelectorAll('table')) {
+    const w = document.createElement('div'); w.className = 'scroll';
+    t.parentNode.insertBefore(w, t); w.appendChild(t);
+  }
+  for (const a of document.querySelectorAll('nav a')) {
+    if (a.dataset.s === s) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  }
+  document.getElementById('mnav').open = false;
+  document.title = p.title + '｜開心的機械 Wiki';
+  window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', show);
+show();
+}
+</script>
+</body>
+</html>

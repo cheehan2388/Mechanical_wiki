@@ -1,0 +1,25 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：左邊是銑削，刀子在轉、工件不動；右邊是車削，工件在轉、刀子不轉">
+<defs><marker id="mvt-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ka"/></marker></defs>
+<text x="40" y="30" class="f-h">銑削（milling）：刀子轉，工件不動</text>
+<rect x="70" y="170" width="250" height="90" class="f-out"/>
+<path d="M150,170 L150,205 L240,205 L240,170" class="f-hold"/>
+<rect x="175" y="70" width="40" height="115" rx="4" class="f-in"/>
+<line x1="186" y1="78" x2="204" y2="98" class="f-s"/><line x1="186" y1="102" x2="204" y2="122" class="f-s"/><line x1="186" y1="126" x2="204" y2="146" class="f-s"/><line x1="186" y1="150" x2="204" y2="170" class="f-s"/>
+<path d="M160,62 A36,12 0 1,0 232,62" class="f-a" marker-end="url(#mvt-ar)"/>
+<text x="245" y="66" class="f-lab">刀高速旋轉</text>
+<text x="245" y="130" class="f-lab">刀往下、往旁邊移動</text>
+<text x="245" y="148" class="f-lab">把材料一層層挖掉</text>
+<text x="85" y="285" class="f-lab">工件（方料）夾在機台上，不動</text>
+<line x1="380" y1="40" x2="380" y2="300" class="f-zero"/>
+<text x="410" y="30" class="f-h">車削（turning）：工件轉，刀子不轉</text>
+<rect x="440" y="150" width="250" height="70" rx="6" class="f-out"/>
+<ellipse cx="440" cy="185" rx="12" ry="35" class="f-out"/>
+<path d="M425,120 A14,40 0 1,1 425,250" class="f-a" marker-end="url(#mvt-ar)"/>
+<text x="410" y="112" class="f-lab">工件高速旋轉</text>
+<path d="M600,280 L585,222 L615,222 Z" class="f-in"/>
+<rect x="590" y="280" width="20" height="30" class="f-in"/>
+<text x="625" y="262" class="f-lab">車刀不轉，</text>
+<text x="625" y="280" class="f-lab">只左右、前後移動</text>
+<text x="440" y="246" class="f-lab">適合圓的零件：軸、套筒</text>
+<text x="40" y="322" class="f-note">示意，非真實尺寸</text>
+</svg>
