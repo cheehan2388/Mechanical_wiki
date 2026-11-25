@@ -2,7 +2,7 @@
 title: 裝夾次數與拆件
 type: concept
 aliases: [裝夾, 夾持, 翻面, setup, 架設, 治具, 夾治具, fixture, 拆件, 多面加工]
-sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020, hubs-design-2026, hubs-cnc-basics-2026]
 updated: 2026-11-25
 ---
 
@@ -29,7 +29,8 @@ updated: 2026-11-25
 - **一次裝夾**：目標是一次夾完、形狀是簡單的 2.5D（[[hubs-cost-2026]] 第 7 招）。例：零件兩面都有盲孔，就要裝夾兩次（[[hubs-cost-2026]]）。
 - **為什麼貴**：重新定位多半是人工，形狀複雜時要做專用夾具（[[hubs-cost-2026]]）；多面加工會增加夾治具和裝夾的時間（[[xometry-cost-2020]] 第 9 招）。
 - **拆件 vs. 一體**：一次裝夾做不完，可以拆成幾個零件分開加工，再用螺絲鎖、或焊接組合（[[hubs-cost-2026]]、[[xometry-cost-2020]]）。拆件多了組裝成本，但難做的零件常常還是划算（[[protolabs-cost-2026]]）。
-- **5 軸機**：機器本身可以轉動工件或刀，減少翻面，但機器比較貴（[[hubs-cost-2026]] 提到更複雜的形狀可能要用多軸機）。
+- **幾次算多**：每轉一次都要重新校正、重新定座標；轉 3 到 4 次通常還可以接受。位置關係要求很準的特徵，要在同一次裝夾裡做完（[[hubs-design-2026]]）。
+- **5 軸機**：多了兩個旋轉方向，可以減少或省掉翻面，但比較貴；刀伸不到的內部形狀還是做不出來（[[hubs-design-2026]]、[[hubs-cnc-basics-2026]]）。
 
 ## 例子
 
@@ -40,10 +41,11 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]、[[hubs-design-2026]]、[[hubs-cnc-basics-2026]]
 
 ## 相關頁面
 
 - [[cnc-milling]]：刀從上面下來，所以才需要翻面
 - [[tolerance]]：位置要很準的特徵，放在同一次裝夾裡做
 - [[cavity-depth]]：太深的槽也可以用拆件解決
+- [[batch-size]]：裝夾是開機成本的一部分

@@ -2,7 +2,7 @@
 title: 公差
 type: concept
 aliases: [公差, 尺寸公差, tolerance, 正負, ±, 基準, datum, 一般公差, GD&T]
-sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020, hubs-design-2026]
 updated: 2026-11-25
 ---
 
@@ -29,6 +29,8 @@ updated: 2026-11-25
 
 - **只標必要的公差**：三份來源都說，只有關鍵特徵才標公差，其他交給標準公差（[[hubs-cost-2026]] 第 6 招、[[xometry-cost-2020]] 第 3 招）。
 - **三家的標準公差幾乎一樣**：Hubs 寫 ±0.125 mm 或更好（[[hubs-cost-2026]]）；Protolabs 寫 ±0.13 mm（[[protolabs-cost-2026]]）；Xometry 寫 ±0.005 英吋（[[xometry-cost-2020]]），換算約 ±0.127 mm（Wiki 的算術）。
+- **一般做得到 vs. 勉強做得到**：一般 ±0.1 mm，最嚴約 ±0.02 mm（[[hubs-design-2026]]）。
+- **沒寫公差的尺寸**：照圖面標題欄寫的一般公差等級，最常見的是 ISO 2768-m，見 [[general-tolerance]]。
 - **用同一個基準**：所有標公差的尺寸從同一個基準量（[[hubs-cost-2026]]、[[xometry-cost-2020]]）。
 - **GD&T**（幾何公差，用符號控制平面度、位置等）可以在放寬尺寸公差的同時守住功能，但需要比較進階的知識（[[hubs-cost-2026]]），這裡先不展開。
 
@@ -41,9 +43,11 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]、[[hubs-design-2026]]
 
 ## 相關頁面
 
+- [[general-tolerance]]：沒寫公差的尺寸照哪張表
+- [[iso2768-1989]]：一般公差的原始標準
 - [[machine-setup]]：要求位置很準的特徵，最好在同一次裝夾裡做完
 - [[cnc-cost-guide]]：其他省錢規則

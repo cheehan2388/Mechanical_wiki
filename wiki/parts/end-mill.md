@@ -48,3 +48,5 @@ updated: 2026-11-25
 - [[internal-corner-radius]]：刀是圓的，所以內角一定有圓角
 - [[cavity-depth]]：刀的長度決定槽能挖多深
 - [[cnc-milling]]：端銑刀用在哪種加工
+- [[thin-wall]]：刀會晃、薄牆也會晃，兩者疊加更難做
+- [[hole-thread]]：非標準孔徑要用端銑刀慢慢修

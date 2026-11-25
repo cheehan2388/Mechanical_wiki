@@ -56,3 +56,36 @@ updated: 2026-11-25
 頁數：sources 3、parts 1、processes 1、concepts 9、cases 0
 健檢通過
 ```
+
+## 2026-11-25 #4–#6 收錄 hubs-design-2026、hubs-cnc-basics-2026、iso2768-1989
+
+這三份大多是「更新既有頁」，所以一起寫完來源頁，再跑一次檢查。（反思：一次三份，檢查失敗時比較難看出是哪一份造成的；之後還是一份一份來。）
+
+- 讀：
+  - hubs-design-2026：網頁全文文字（含規則表），沒看圖。
+  - hubs-cnc-basics-2026：網頁全文文字，沒看圖。
+  - iso2768-1989：標準全文（IS 2102 Part 1:1993 PDF，與 ISO 2768-1:1989 相同）。PDF 是掃描轉文字，表 1 已和同一份 PDF 的原始文字對過；表 2 的 v 級欄位不清楚，**待核對**。
+- 新增：[[hubs-design-2026]]、[[hubs-cnc-basics-2026]]、[[iso2768-1989]]、[[cnc-turning]]（加工頁，1 份來源直接談）、[[general-tolerance]]（3 份來源）。
+- 更新：[[cnc-milling]]（補完「為什麼選它」：vs. 車削、3D 列印、板金、5 軸）、[[cavity-depth]]、[[internal-corner-radius]]、[[thin-wall]]、[[hole-thread]]、[[tolerance]]、[[machine-setup]]、[[surface-finish]]、[[cnc-cost-guide]]（加總表與「不一致的地方」）、[[todo]]。
+- **找到矛盾**：
+  - hubs-cnc-basics-2026 自己有三處數字前後不一致（銑床尺寸、最嚴公差、金屬牆厚）→ 全部寫進來源頁的「推論」，不採用其中一個。
+  - 盲孔留多長不攻牙：Hubs 兩篇寫半個孔徑和 1.5 倍孔徑 → 兩個都寫，標出小螺紋照長的留比較保險是 Wiki 推論。
+  - 「一般公差 ≈ ±0.125 mm」：ISO 2768 的公差隨尺寸改變，所以這只是近似 → 寫進 [[general-tolerance]]。
+- 分支判斷：5 軸出現在 2 份，但兩份都是 Hubs → 照第 7 節先不拆，寫在 [[machine-setup]]。文字刻字到 3 份，但對省錢篇是小項目，先放總表。
+- 第 1 次檢查失敗 8 項：
+  - 3 項是「相關頁面」的原因太短（「銑削」「車削」「總表」不到 4 個字）→ 改成一句完整的原因。
+  - 2 項是連到還沒建的頁（cnc-turning、general-tolerance）→ 建頁。
+  - 3 項是 log 沒有紀錄 → 補這一筆。
+  - 警告：hubs-cost-2026 被 16 頁連到 → 已經有導覽頁 cnc-cost-guide，在它開頭加 `hub: cnc-cost-guide`。
+- 第 2 次檢查失敗 3 項（只剩 log）；補完這一筆後：
+```
+頁數：sources 6、parts 1、processes 2、concepts 10、cases 0
+健檢通過
+```
+
+## 2026-11-25 #7 健檢（lint_report.py）
+
+- check.py 通過。
+- 單向連結 7 條 → 補了 6 條回連（surface-finish → machinability 那條原本就有了一半，一併補上）。
+- 「可能相關、卻互不相連」35 條：大部分是誤報。這個主題的來源都是「一份清單談十幾條規則」，所以幾乎每兩個概念頁都共用 2–3 份來源。**這個規則在機械 Wiki 不太適用**，先記下來，之後考慮改成「共用的來源排除總表型來源」或提高門檻（反思用）。
+- 待辦裡可拆的 3 項：都已寫明暫不拆的理由。

@@ -2,7 +2,7 @@
 title: 表面處理
 type: concept
 aliases: [表面處理, 表處, surface finish, 陽極處理, anodizing, 噴砂, bead blast, 化成皮膜, chem film, 切削原樣, as machined]
-sources: [hubs-cost-2026, xometry-cost-2020]
+sources: [hubs-cost-2026, xometry-cost-2020, hubs-cnc-basics-2026]
 updated: 2026-11-25
 ---
 
@@ -28,6 +28,7 @@ updated: 2026-11-25
 
 - **單一處理 vs. 多種處理**：每一種處理都要錢，多種處理還要多做遮蔽這類步驟（[[hubs-cost-2026]] 第 12 招）。例如同一個零件又要陽極處理又要化成皮膜、又要拋光又要噴砂，都會多出製程（[[xometry-cost-2020]] 第 8 招）。
 - **切削原樣**：能接受的話，直接用切完的樣子最便宜（[[hubs-cost-2026]]），或統一一種處理（[[xometry-cost-2020]]）。
+- **切完有多光**：表面粗糙度（表面的細小高低起伏）銑削件約 3.2 µm，新機器約 1.6 µm；車削件約 0.8 µm（[[hubs-cnc-basics-2026]]）。數字越小越光滑。
 - 不確定要不要處理時，Xometry 建議把零件的用途告訴窗口，讓對方判斷（[[xometry-cost-2020]]）。
 
 ## 例子
@@ -36,9 +37,10 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[xometry-cost-2020]]
+[[hubs-cost-2026]]、[[xometry-cost-2020]]、[[hubs-cnc-basics-2026]]
 
 ## 相關頁面
 
 - [[machinability]]：材料選擇也會決定能做哪些處理
+- [[cnc-turning]]：車削件切完通常比銑削件光
 - [[cnc-cost-guide]]：其他省錢規則

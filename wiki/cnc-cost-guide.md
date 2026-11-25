@@ -1,23 +1,52 @@
 ---
 title: CNC 省錢篇：零件到底貴在哪裡
 type: overview
-aliases: [CNC 省錢, 導覽, 降低成本, DFM]
-sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
+aliases: [CNC 省錢, 導覽, 降低成本, DFM, 總表]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020, hubs-design-2026, hubs-cnc-basics-2026, iso2768-1989]
 updated: 2026-11-25
 ---
 
 # CNC 省錢篇：零件到底貴在哪裡
 
-這是 Wiki 的第一個主題。核心問題套在這裡就是：**每一條設計規則在解決什麼問題？為什麼選它，不選別的？**
+這是 Wiki 的第一個主題。核心問題套在這裡：**每一條設計規則在解決什麼問題？為什麼選它，不選別的？**
+
+## 先抓住一句話
+
+CNC 的報價，最大的一塊通常是**機器要切多久**（[[hubs-cost-2026]]、[[xometry-cost-2020]]）。所以幾乎每一條省錢規則，都在做這四件事之一：**少切、快切、少換刀、少翻面**（Wiki 的整理，原文沒這樣分）。
 
 ## 建議閱讀順序
 
-1. 先看 CNC 怎麼切：[[cnc-milling]]
-2. 成本從哪裡來：[[hubs-cost-2026]] 的四個成本來源
-3. 刀的形狀決定了一切：[[end-mill]] → [[internal-corner-radius]] → [[cavity-depth]] → [[thin-wall]]
-4. 孔與螺紋：[[hole-thread]]
-5. 圖面上的數字：[[tolerance]]
-6. 翻面與拆件：[[machine-setup]]
-7. 材料、表面處理、數量：[[machinability]]、[[surface-finish]]、[[batch-size]]
+1. **CNC 在做什麼**：[[cnc-milling]]（刀轉）和 [[cnc-turning]]（工件轉）
+2. **刀的形狀決定了一切**：[[end-mill]] → [[internal-corner-radius]] → [[cavity-depth]] → [[thin-wall]]
+3. **孔與螺紋**：[[hole-thread]]
+4. **圖面上的數字**：[[tolerance]] → [[general-tolerance]]
+5. **翻面與拆件**：[[machine-setup]]
+6. **材料、表面、數量**：[[machinability]] → [[surface-finish]] → [[batch-size]]
 
-（收錄更多來源後，這裡會補上總表。）
+## 總表：每條規則在解決什麼、為什麼選它
+
+| 規則 | 解決什麼問題 | 為什麼選它（跟什麼比） | 來源的數字 | 頁 |
+|---|---|---|---|---|
+| 內角加圓角 | 刀是圓的，切不出尖的內角 | 大圓角能用大刀、切得快；小圓角要換小刀慢慢切 | 圓角至少是凹槽深度的 1/3（Hubs） | [[internal-corner-radius]] |
+| 要尖角就加清角 | 方形零件要塞到角落 | 清角用正常大小的刀；縮小圓角要用很小的刀，又慢又切不深 | 6.35 mm 寬的清角可做到約 32 mm 深（Protolabs） | [[internal-corner-radius]] |
+| 凹槽別太深 | 刀伸越長越會晃 | 淺槽穩又快；太深就拆件 | 深度不超過凹槽寬度的 4 倍（Hubs 設計指南）；刀最舒服的深度約 2–3 倍刀徑 | [[cavity-depth]] |
+| 牆別太薄 | 薄牆一切就晃、會斷會翹 | 加厚最便宜；加肋也要加工；很薄就改板金 | 金屬 0.8 mm、塑膠 1.5 mm（Hubs）；0.794 mm（Xometry） | [[thin-wall]] |
+| 用標準孔徑 | 特殊尺寸要換刀慢慢修 | 標準鑽頭一次到位 | 10 mm 以下以 0.1 mm 為一級（Hubs） | [[hole-thread]] |
+| 螺紋別攻太深 | 攻太深絲攻會斷，強度也沒變強 | 3 倍孔徑就夠 | 螺紋長度不超過孔徑的 3 倍（Hubs、Xometry） | [[hole-thread]] |
+| 只標必要的公差 | 越嚴越要慢慢切、多量 | 不重要的尺寸交給一般公差 | 標準公差約 ±0.125 mm（Hubs）、±0.13 mm（Protolabs） | [[tolerance]] |
+| 讀懂 ISO 2768-m | 沒寫公差的尺寸該多準 | 查表，不用每個都標 | 30–120 mm 的 m 級是 ±0.3 mm（ISO 2768） | [[general-tolerance]] |
+| 少翻面 | 每翻一次就要重夾、重對位 | 一次裝夾最省；做不到就拆件或用 5 軸 | 轉 3 到 4 次通常還能接受（Hubs 設計指南） | [[machine-setup]] |
+| 選好切的材料 | 難切的材料切得慢、刀磨得快 | 6061 鋁又便宜又好切 | 不鏽鋼常要鋁的 2 倍以上時間（Hubs） | [[machinability]] |
+| 只用一種表面處理 | 多種處理要多做遮蔽 | 切削原樣最便宜 | 兩份來源都沒給數字 | [[surface-finish]] |
+| 一次多訂幾件 | 開機成本是固定的 | 件數多，每件分到的少 | 1 件加到 5 件，單價約減半（Hubs） | [[batch-size]] |
+| 文字少用 | 刻字要用小刀慢慢描 | 改用網印、噴漆；一定要就用刻字、字大一點 | 字型 20 號以上（Hubs） | 還沒拆頁（見 [[todo]]） |
+
+## 來源之間不一致的地方
+
+- **凹槽深度的 4 倍**：Hubs 省錢文章寫「最大 XY 尺寸的 4 倍」，Hubs 設計指南寫「凹槽寬度的 4 倍」，Xometry 寫「槽的長度最多是深度的 4 倍」。三種寫法都照原文記在 [[cavity-depth]]。
+- **盲孔底部留多長不攻牙**：Hubs 兩篇分別寫半個孔徑和 1.5 倍孔徑，見 [[hole-thread]]。
+- **標準公差**：三家換算後都約 ±0.13 mm，但 ISO 2768 的公差會隨尺寸改變，「一般公差等於某個固定數字」只是近似，見 [[general-tolerance]]。
+
+## 這一篇的來源
+
+六份：四份來自 Protolabs 集團（[[hubs-cost-2026]]、[[hubs-design-2026]]、[[hubs-cnc-basics-2026]]、[[protolabs-cost-2026]]），一份來自另一家公司（[[xometry-cost-2020]]），一份是國際標準（[[iso2768-1989]]）。廠商文章是經驗法則，實際設計以合作工廠的建議為準。

@@ -67,4 +67,5 @@ Protolabs 官網的設計建議文章〈How to Reduce CNC Machining Costs〉。P
 
 - [[hubs-cost-2026]]：另一份省錢清單，規則可以互相對照
 - [[internal-corner-radius]]：清角的詳細說明
+- [[xometry-cost-2020]]：另一家公司的版本，可以當獨立對照
 - [[cnc-cost-guide]]：CNC 省錢篇的總表

@@ -3,6 +3,7 @@ title: CNC 加工省錢的 14 個設計技巧（Protolabs Network／Hubs）
 type: source
 aliases: [Hubs, 3D Hubs, Protolabs Network, 14 proven design tips, CNC 省錢, 降低加工成本, DFM]
 sources: [hubs-cost-2026]
+hub: cnc-cost-guide
 updated: 2026-11-25
 ---
 

@@ -2,7 +2,7 @@
 title: 薄牆與細高特徵
 type: concept
 aliases: [薄牆, 牆厚, 薄壁, thin wall, wall thickness, 細高特徵, 高寬比, aspect ratio, 肋]
-sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020, hubs-design-2026, hubs-cnc-basics-2026]
 updated: 2026-11-25
 ---
 
@@ -26,6 +26,7 @@ updated: 2026-11-25
 
 - **建議的最小牆厚**：金屬 0.8 mm 以上、塑膠 1.5 mm 以上；勉強能做到金屬約 0.5 mm、塑膠約 1.0 mm，但要個案評估（[[hubs-cost-2026]]）。
 - Protolabs 的報價軟體把 0.51 mm 以下的特徵標成薄牆：還是能做，但成品可能跟設計有點出入；切完也可能彎或翹（[[protolabs-cost-2026]]）。
+- 同一家的入門文章，金屬最小牆厚在內文寫 0.8 mm、在表格寫 0.75 mm，自己前後不一致（[[hubs-cnc-basics-2026]]）；設計指南和省錢文章都寫 0.8 mm（[[hubs-design-2026]]）。
 - Xometry 的最小牆厚是 1/32 英吋（0.794 mm），和 Hubs 的 0.8 mm 幾乎一樣（[[xometry-cost-2020]] 第 4 招）。
 - **CNC vs. 板金**：牆真的很薄的零件，改用板金折出來通常比較划算（[[xometry-cost-2020]]）。
 - **加厚 vs. 加肋**：不在意重量的話，直接加厚最便宜；加肋（補強的小牆）可以防變形，但肋本身也要加工，又多了成本（[[protolabs-cost-2026]]）。
@@ -37,7 +38,7 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]、[[hubs-design-2026]]、[[hubs-cnc-basics-2026]]
 
 ## 相關頁面
 

@@ -43,4 +43,5 @@ updated: 2026-11-25
 
 - [[cnc-milling]]：材料好不好切，直接影響銑削的時間
 - [[batch-size]]：數量多寡會改變材料怎麼選
+- [[surface-finish]]：材料也決定能做哪些表面處理
 - [[cnc-cost-guide]]：其他省錢規則

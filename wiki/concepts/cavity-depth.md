@@ -2,7 +2,7 @@
 title: 凹槽深度
 type: concept
 aliases: [凹槽深度, 口袋, pocket, cavity, 深腔, 深槽, cavity depth, 長徑比]
-sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020]
+sources: [hubs-cost-2026, protolabs-cost-2026, xometry-cost-2020, hubs-design-2026]
 updated: 2026-11-25
 ---
 
@@ -27,6 +27,7 @@ updated: 2026-11-25
 ## 為什麼選它
 
 - **淺槽 vs. 深槽**：深度最多畫到凹槽最大 XY 尺寸（從上往下看最長的那個方向）的 4 倍（[[hubs-cost-2026]]）。刀最好的工作深度約是直徑的 2–3 倍，12 mm 的刀大約能切到 25 mm 深（[[hubs-cost-2026]]）。
+- **同一家也有兩種寫法**：Hubs 的設計指南寫「凹槽寬度的 4 倍」（[[hubs-design-2026]]），比「最大 XY 尺寸的 4 倍」保守，因為寬度通常比最長的尺寸小。勉強可做的範圍：深銑可以超過刀徑 6 倍；用特殊刀具可以到 30:1，1 英吋的刀最深約 35 cm（[[hubs-design-2026]]）。
 - **兩家的寫法方向相反**：Xometry 原文寫「槽的長度最多是深度的 4 倍」，超過就要用容易斷的細長刀、分層往下切，或改用線切割這類更貴的方法（[[xometry-cost-2020]] 第 2 招）。字面上和 Hubs 的「深度最多是 XY 尺寸的 4 倍」方向相反；兩篇想講的都是「槽別太深」，Wiki 照原文兩個都記，實際設計時以工廠的建議為準。
 - **鋼 vs. 鋁、塑膠**：同樣的刀，鋁或塑膠可以切的深度是鋼的 2 倍（[[protolabs-cost-2026]]）。
 - **深槽 vs. 拆件**：功能上一定要很深時，可以把零件拆成幾塊，各自加工後再組合（[[hubs-cost-2026]] 第 7 招、[[protolabs-cost-2026]]）。
@@ -38,10 +39,11 @@ updated: 2026-11-25
 
 ## 出現在哪些來源
 
-[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]
+[[hubs-cost-2026]]、[[protolabs-cost-2026]]、[[xometry-cost-2020]]、[[hubs-design-2026]]
 
 ## 相關頁面
 
 - [[end-mill]]：刀的長度與直徑決定能挖多深
 - [[internal-corner-radius]]：槽越深，圓角也要跟著放大
 - [[thin-wall]]：深槽旁邊常常就是薄牆
+- [[machine-setup]]：太深的槽可以拆件解決

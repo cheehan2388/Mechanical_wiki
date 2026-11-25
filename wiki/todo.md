@@ -19,7 +19,7 @@ updated: 2026-11-25
 | 螺紋長度、標準孔徑 | hubs-cost-2026、xometry-cost-2020 | 2 | 已拆 [[hole-thread]] |
 | 公差 | hubs-cost-2026、protolabs-cost-2026、xometry-cost-2020 | 3 | 已拆 [[tolerance]] |
 | 裝夾次數、拆件 | hubs-cost-2026、protolabs-cost-2026、xometry-cost-2020 | 3 | 已拆 [[machine-setup]] |
-| 文字與刻字 | hubs-cost-2026、protolabs-cost-2026 | 2 | 可拆，但這輪已新增 5 頁（上限），下一輪再做 |
+| 文字與刻字 | hubs-cost-2026、protolabs-cost-2026、hubs-design-2026 | 3 | 可拆；對省錢篇是小項目，先寫在導覽總表 |
 | 材料可切削性、材料價格 | hubs-cost-2026、protolabs-cost-2026 | 2 | 已拆 [[machinability]] |
 | 表面處理 | hubs-cost-2026、xometry-cost-2020 | 2 | 已拆 [[surface-finish]] |
 | 毛胚尺寸 | hubs-cost-2026 | 1 | 等第二份 |
@@ -27,6 +27,11 @@ updated: 2026-11-25
 | 殘留應力 | protolabs-cost-2026 | 1 | 等第二份 |
 | 放電加工（EDM）、線切割 | protolabs-cost-2026、xometry-cost-2020 | 2 | 可拆；這輪已新增 5 頁，下一輪再看 |
 | 開模 vs. CNC 的數量分界 | xometry-cost-2020 | 1 | 等第二份 |
+| 5 軸加工 | hubs-design-2026、hubs-cnc-basics-2026 | 2 | 兩份都是 Hubs；先寫在 [[machine-setup]]，等別家來源再拆 |
+| 3D 列印 vs. CNC | hubs-cnc-basics-2026 | 1 | 等第二份 |
+| ISO 2768-2 幾何公差（H、K、L） | iso2768-1989 提到 | 1 | 還沒讀第 2 部分 |
+| ISO 22081（取代 ISO 2768 的新標準） | 只在二手文章看到 | 0 | 要找原文 |
+| 車削的規格與常見問題 | hubs-cnc-basics-2026 | 1 | 等車床的資料 |
 | 拉削（broaching）、鉸刀 | xometry-cost-2020 | 1 | 等第二份 |
 | 量產攤提開機成本 | hubs-cost-2026、xometry-cost-2020 | 2 | 已拆 [[batch-size]] |
 
