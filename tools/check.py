@@ -199,8 +199,7 @@ for ed in sorted((ROOT / "editions").glob("*.txt")) if (ROOT / "editions").exist
         if s not in pages:
             errors.append(f"{ed.relative_to(ROOT)}：列了不存在的頁面 {s}")
 
-# 數字只住在來源頁（AGENTS.md 第 8 節）
-NUM_RE = re.compile(r"(?<![A-Za-z\d.])[−-]?\d[\d,]*(?:\.\d+)?")
+# 數字只住在來源頁（AGENTS.md 第 8 節）；比對方法見 tools/numcheck.py
 CHECK_ALL = {"part", "process", "case"}
 
 
@@ -221,13 +220,15 @@ def strip_for_numbers(text):
     return LINK_RE.sub(" ", text)
 
 
-source_numbers = {s: numbers(d["body"]) for s, d in pages.items() if d["folder"] == "sources"}
+sys.path.insert(0, str(ROOT / "tools"))
+from numcheck import found, index_lines, NUM_RE as NUM_RE2, unit_after, value  # noqa: E402
+source_rows = {s: index_lines(d["body"]) for s, d in pages.items() if d["folder"] == "sources"}
 for slug, d in pages.items():
     meta, ptype = d["meta"] or {}, (d["meta"] or {}).get("type")
     if not (ptype in CHECK_ALL or ptype == "concept" or slug.endswith("-guide")):
         continue
-    allowed = [n for s in meta.get("sources", []) for n in source_numbers.get(s, [])]
-    section = ""
+    allowed = [r for s in meta.get("sources", []) for r in source_rows.get(s, [])]
+    section, header = "", ""
     for line in d["body"].splitlines():
         if line.startswith("## "):
             section = line[3:].strip()
@@ -235,18 +236,23 @@ for slug, d in pages.items():
             continue  # 標明「Wiki 的算術」或「示意」的句子不檢查
         if ptype == "concept" and section == "例子":
             continue  # 概念頁的例子是教學用的示意數字
-        line_allowed = allowed + [n for s in LINK_RE.findall(line) for n in source_numbers.get(s, [])]
+        if line.startswith("|"):
+            header = header or line
+        else:
+            header = ""
+        line_allowed = allowed + [r for s in LINK_RE.findall(line) for r in source_rows.get(s, [])]
         clean = strip_for_numbers(line)
-        for m in NUM_RE.finditer(clean):
+        for m in NUM_RE2.finditer(clean):
             try:
-                n = abs(float(m.group(0).replace(",", "").replace("−", "-")))
+                n = value(m.group(0))
             except ValueError:
                 continue
-            unit = re.match(r"\s*(%|％|倍|mm|µm|μm|cm|in|吋|°|度|美元|\$|N|MPa|件|個|天|HRB)", clean[m.end():])
+            unit = unit_after(clean, m.end())
             if n <= 20 and n == int(n) and not unit:
-                continue  # 沒帶單位的小整數多半是步驟、天數、「2 個標準差」這類
-            if not any(abs(w - n) < 1e-9 or (n == int(n) and abs(w - n) < 0.5) for w in line_allowed):
-                errors.append(f"{d['path']}：數字 {n:g} 在它引用的來源頁 {meta.get('sources', [])} 裡找不到：{line.strip()[:50]}")
+                continue  # 沒帶單位的小整數多半是步驟、招數、「第 3 招」這類
+            if not found(n, unit, line + " " + header, line_allowed):
+                errors.append(f"{d['path']}：數字 {n:g}{unit} 在它引用的來源頁 {meta.get('sources', [])} 裡找不到"
+                              f"（要同數值、同單位、同一句有相同的詞）：{line.strip()[:50]}")
 
 counts = {k: sum(1 for d in pages.values() if d["folder"] == k) for k in FOLDER_TYPE}
 print("頁數：" + "、".join(f"{k} {v}" for k, v in counts.items()))

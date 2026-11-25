@@ -145,9 +145,10 @@ body.read .nav{display:none}body.read .hint{position:static;display:block;paddin
 const SLIDES = /*__SLIDES__*/null;
 const stage = document.getElementById('stage');
 const twins = `<svg class="twins" viewBox="0 0 470 470" aria-hidden="true">
-  <path class="tw-gap" d="M40,250 C120,240 160,230 200,200 C240,170 260,150 300,150 C340,150 360,190 430,200 L430,210 C360,205 330,300 290,300 C250,300 230,260 200,250 C160,240 120,255 40,255 Z"/>
-  <path class="tw-a" d="M40,255 C120,255 160,240 200,250 C230,260 250,300 290,300 C330,300 360,205 430,210"/>
-  <path class="tw-b" d="M40,250 C120,240 160,230 200,200 C240,170 260,150 300,150 C340,150 360,190 430,200"/></svg>`;
+  <path class="tw-gap" d="M170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 Z"/>
+  <path class="tw-a" d="M60,300 L170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 L420,300 L420,430 L60,430 Z"/>
+  <path class="tw-b" d="M225,90 L265,90 L265,290 L225,290 Z M225,130 L265,160 M225,180 L265,210 M225,230 L265,260"/>
+  <path class="tw-b" d="M205,70 A40,14 0 1,0 285,70"/></svg>`;
 stage.innerHTML = SLIDES.map((s, i) => `
   <section class="s ly-${s.layout}" id="s${i + 1}" aria-label="第 ${i + 1} 頁">
     ${s.html}${s.layout === 'cover' ? twins : ''}
