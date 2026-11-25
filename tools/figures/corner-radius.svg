@@ -17,10 +17,11 @@
 <text x="290" y="200" class="f-note">圓角畫大一點，</text>
 <text x="290" y="216" class="f-note">就能用大刀切得快</text>
 <text x="530" y="62" class="f-lab">③ 需要尖角：加清角</text>
-<path d="M530,300 L530,150 A30,30 0 0,1 530,90 L740,90" class="f-b"/>
-<rect x="552" y="112" width="160" height="160" class="f-hold"/>
-<text x="580" y="200" class="f-lab">方形零件</text>
-<text x="580" y="218" class="f-lab">的角塞得到底</text>
-<text x="530" y="296" class="f-note">角落多挖一個 U 形缺口</text>
+<rect x="531" y="91" width="150" height="150" class="f-hold"/>
+<path d="M530,300 L530,112 A22,22 0 1,1 552,90 L740,90" class="f-b"/>
+<circle cx="530" cy="90" r="2.5" class="f-ka"/>
+<text x="560" y="170" class="f-lab">方形零件的角</text>
+<text x="560" y="188" class="f-lab">塞得到底</text>
+<text x="545" y="296" class="f-note">清角：角落的 U 形缺口</text>
 <text x="20" y="322" class="f-note">示意，非真實尺寸</text>
 </svg>

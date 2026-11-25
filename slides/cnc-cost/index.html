@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CNC 零件到底貴在哪裡？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 給沒受過機械訓練的現場夥伴上的一堂課：冷靜、清楚、一頁只講一件事
+   IDEA: 加工手冊的一頁頁筆記：每頁底下都寫著「這頁的知識來自 Wiki 的哪一頁」
+   PICTURE: 封面是兩條分開又靠回來的線（雙胞胎）；內頁的圖表本身就是主角
+   COLOUR and TYPE: 白底、墨色 #101418、黃 #ffd84a 只用在重點與定義；Manrope + Noto Sans TC
+   LAYOUT: 1280×720 舞台等比縮放；窄螢幕改成上下捲動的閱讀模式 */
+:root{color-scheme:light dark;
+  --bg:light-dark(#ffffff,#101418);--ink:light-dark(#101418,#e8ecf0);--muted:light-dark(#5b6670,#9aa6b1);
+  --line:light-dark(#e3e7eb,#26303a);--side:light-dark(#f5f7f9,#151b21);--hl:#ffd84a;--hl-ink:#101418;
+  --link:light-dark(#1f4fd1,#8fb2ff);--bad:#d6453d;--good:#1f8a5b;--chip:light-dark(#eef1f4,#1e2630)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;height:100%}
+body{background:var(--side);color:var(--ink);font:16px/1.55 "Manrope","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;overflow:hidden}
+#wrap{position:fixed;inset:0;display:grid;place-items:center}
+#stage{width:1280px;height:720px;position:relative;background:var(--bg);transform-origin:center center;box-shadow:0 2px 30px rgba(0,0,0,.08);overflow:hidden}
+.s{position:absolute;inset:0;padding:56px 84px 92px;display:none;flex-direction:column;--fs:29px;font-size:var(--fs)}
+.s.on{display:flex}
+.s h1{font-size:64px;line-height:1.08;margin:0 0 22px;font-weight:900;letter-spacing:-.02em;text-wrap:balance}
+.s h2{font-size:46px;line-height:1.15;margin:0 0 26px;font-weight:800;letter-spacing:-.015em;text-wrap:balance}
+.s p{margin:0 0 16px;line-height:1.55}
+.s ul{margin:0 0 14px;padding-left:1.1em}
+.s li{margin:0 0 12px;line-height:1.5}
+.s li::marker{color:var(--muted)}
+.s strong{background:linear-gradient(transparent 60%,rgba(255,216,74,.75) 60%)}
+.s blockquote{margin:10px 0 0;padding:10px 18px;border-left:6px solid var(--hl);background:var(--side);border-radius:0 8px 8px 0;font-size:.8em}
+.s blockquote p{margin:0}
+.s blockquote strong{background:none}
+.s table{border-collapse:collapse;width:100%;margin:4px 0 22px;font-size:.92em}
+.s th,.s td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.s th{border-bottom:3px solid var(--ink);font-weight:800}
+.s td:last-child{font-variant-numeric:tabular-nums}
+.foot{position:absolute;left:84px;right:84px;bottom:26px;display:flex;gap:18px;align-items:center;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.foot .src a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:3px;text-underline-offset:3px}
+.foot .src a:hover{background:var(--hl);color:var(--hl-ink)}
+.foot .n{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{background:var(--chip);color:var(--ink);border-radius:4px;padding:1px 8px;font-size:13px;white-space:nowrap}
+/* cover */
+.ly-cover{justify-content:center;padding-right:520px}
+.ly-cover p:nth-of-type(1){display:inline-block;background:var(--hl);color:var(--hl-ink);font-weight:800;font-size:30px;padding:4px 14px;border-radius:4px;margin-bottom:26px}
+.ly-cover p:nth-of-type(2){color:var(--muted);font-size:20px}
+.twins{position:absolute;right:40px;top:110px;width:470px;height:470px}
+.twins path{fill:none;stroke-width:7;stroke-linecap:round}
+.twins .tw-a{stroke:var(--ink)}.twins .tw-b{stroke:var(--link)}.twins .tw-gap{fill:var(--hl);opacity:.5;stroke:none}
+/* statement */
+.ly-statement{justify-content:center}
+.ly-statement h2{font-size:28px;color:var(--muted);font-weight:700;margin-bottom:20px}
+.ly-statement p{font-size:40px;line-height:1.35;font-weight:700;max-width:24em;text-wrap:balance}
+.ly-statement p+p{font-size:28px;font-weight:500;color:var(--ink)}
+/* figure */
+.fig{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.fig svg{width:100%;height:100%;max-height:460px}
+.ly-figure .fig{margin-bottom:8px}
+.fig-svg{font-family:inherit}
+.f-h{font-size:14px;font-weight:700;fill:var(--ink)}.f-lab{font-size:13px;fill:var(--ink)}
+.f-tick{font-size:12px;fill:var(--muted)}.f-note{font-size:12px;fill:var(--muted)}
+.f-a{fill:none;stroke:var(--ink);stroke-width:2}.f-b{fill:none;stroke:var(--link);stroke-width:2}
+.f-ka{fill:var(--ink)}.f-kb{fill:var(--link)}.f-s{fill:none;stroke:var(--ink);stroke-width:1.8}
+.f-band{stroke:var(--muted);stroke-dasharray:5 5}.f-zero{stroke:var(--muted)}.f-hold{fill:var(--hl);opacity:.3}
+.f-in{fill:var(--hl);stroke:var(--hl-ink);stroke-width:1.5}.f-out{fill:var(--bg);stroke:var(--ink);stroke-width:2}
+.k-dot{fill:var(--muted);opacity:.55}.k-ma{fill:none;stroke:var(--link);stroke-width:3}
+.k-kf{fill:none;stroke:#d6453d;stroke-width:3}.k-turn{stroke:var(--muted);stroke-dasharray:4 4}
+.kl text{font-size:16px;fill:var(--ink);text-anchor:middle}
+.kl .kl-t{font-size:22px;font-weight:800}.kl .kl-s{font-size:14px;fill:var(--muted);font-weight:600}
+.kl-n rect{fill:var(--bg);stroke:var(--ink);stroke-width:2.5}
+.kl-c rect{fill:var(--hl);stroke:var(--hl-ink);stroke-width:2.5}.kl-c text{fill:var(--hl-ink)}
+.kl-g rect{fill:var(--side);stroke:var(--line);stroke-width:1.5}.kl .kl-gt{font-weight:800}
+.kl-e{fill:none;stroke:var(--ink);stroke-width:2.5}.kl-head{fill:var(--ink)}
+.nb .nb-c{fill:none;stroke:var(--ink);stroke-width:3}.nb-1{fill:var(--hl);opacity:.55}.nb-2{fill:var(--hl);opacity:.22}
+.nb-ax{stroke:var(--muted);stroke-width:1.5}.nb text{font-size:14px;fill:var(--ink)}.nb .nb-big{font-size:22px;font-weight:800}
+.nb .nb-n{font-size:12px;fill:var(--muted)}
+.nf-a{fill:none;stroke:var(--ink);stroke-width:2.5}.nf-b{fill:none;stroke:var(--link);stroke-width:2.5}
+.nf-f{fill:rgba(214,69,61,.12);stroke:#d6453d;stroke-width:3.5}.nf-mid{stroke:#d6453d;stroke-dasharray:4 4}
+.nb .nf-ta{font-weight:700}.nb .nf-tb{font-weight:700;fill:var(--link)}.nb .nf-tf{font-weight:800;fill:#d6453d}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--line);font-size:21px}
+.tl li{position:relative;margin:0;padding:4px 0 7px 16px;display:grid;grid-template-columns:8.6em minmax(0,1fr);gap:14px}
+.tl li::before{content:"";position:absolute;left:-32px;top:12px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--ink)}
+.tl li.bad::before{background:var(--bad);border-color:var(--bad)}.tl li.good::before{background:var(--hl);border-color:var(--hl-ink)}
+.tl b{white-space:nowrap}.fig-src{font-size:14px;color:var(--muted);margin:6px 0 0!important}
+/* loop graph */
+.lg text{font-size:17px;fill:var(--ink);text-anchor:middle;font-weight:700}
+.lg .lg-s{font-size:13px;font-weight:500;fill:var(--muted)}
+.lg .lg-t{text-anchor:start;font-size:16px;font-weight:800}
+.lg .lg-rl{font-size:13px;fill:var(--bad);font-weight:700}.lg .lg-ll{font-size:13px;fill:var(--muted);font-weight:600}
+.lg-n rect{fill:var(--bg);stroke:var(--ink);stroke-width:2}
+.lg-c rect,.lg-kc{fill:var(--hl);stroke:var(--hl-ink);stroke-width:2}
+.lg-c text{fill:var(--hl-ink)}.lg-c .lg-s{fill:#3c4650}
+.lg-e,.lg-l{fill:none;stroke:var(--ink);stroke-width:2}.lg-l{stroke-dasharray:6 5;stroke:var(--muted)}
+.lg-r{fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4}
+.lg-head{fill:var(--ink)}.lg-headr{fill:var(--bad)}
+.lg-key text{text-anchor:start;font-size:13px;font-weight:600;fill:var(--muted)}
+/* quiz */
+.quiz{display:flex;flex-direction:column;gap:14px}
+.q .qq{font-weight:700;margin:0 0 8px;font-size:.88em}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{font:inherit;font-size:.72em;padding:9px 16px;min-height:44px;border-radius:8px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt:focus-visible,.nav button:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+.opt.right{border-color:var(--good);background:light-dark(#e6f4ec,#14301f)}
+.opt.wrong{border-color:var(--bad);background:light-dark(#fbe9e8,#3a1715)}
+.opt:disabled{cursor:default}
+.why{font-size:.68em;color:var(--muted);margin:8px 0 0!important}
+.score{font-weight:800;font-size:.8em;margin-top:6px}
+.ly-sources li{font-size:.78em;margin-bottom:8px}
+.ill{background:var(--hl);color:var(--hl-ink)}
+/* nav */
+#bar{position:fixed;left:0;top:0;height:4px;background:var(--hl);transition:width .2s}
+.nav{position:fixed;right:18px;bottom:16px;display:flex;gap:8px}
+.nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:20px;cursor:pointer}
+.hint{position:fixed;left:18px;bottom:24px;font-size:13px;color:var(--muted)}
+.hint a{color:var(--ink);font-weight:700}
+/* reading mode (narrow screens) */
+body.read{overflow:auto;background:var(--bg)}
+body.read #wrap{position:static;display:block;place-items:normal}
+body.read #stage{width:auto;height:auto;transform:none!important;box-shadow:none;overflow:visible}
+body.read .s{position:relative;display:flex;padding:34px 18px 70px;border-bottom:8px solid var(--side);--fs:17px!important;min-height:0}
+body.read .s h1{font-size:34px}body.read .s h2{font-size:25px;margin-bottom:16px}
+body.read .ly-cover{padding-right:18px;min-height:0}body.read .twins{position:static;width:100%;height:auto;max-width:300px;margin-top:10px}
+body.read .ly-cover p:nth-of-type(1){font-size:19px}
+body.read .ly-statement p{font-size:22px}body.read .ly-statement p+p{font-size:18px}
+body.read .foot{left:18px;right:18px;bottom:16px;font-size:12px;flex-wrap:wrap;gap:6px 12px}
+body.read .fig{overflow-x:auto}body.read .fig svg{min-width:560px;max-height:none;height:auto}
+body.read .tl{font-size:15px}body.read .tl li{grid-template-columns:minmax(0,1fr);gap:0}
+body.read .s table{font-size:14px}body.read .s th,body.read .s td{padding:8px}
+body.read .nav{display:none}body.read .hint{position:static;display:block;padding:18px;font-size:15px}body.read .keys{display:none}body.read #bar{display:none}
+@media(prefers-reduced-motion:no-preference){.s.on{animation:fade .25s ease-out}@keyframes fade{from{opacity:0}}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="wrap"><div id="stage" role="region" aria-roledescription="簡報" aria-label="CNC 零件到底貴在哪裡？"></div></div>
+<div class="nav"><button id="prev" aria-label="上一頁">←</button><button id="next" aria-label="下一頁">→</button></div>
+<div class="hint"><a href="https://cheehan2388.github.io/Mechanical_wiki/index.html" target="_top">← 網站首頁</a><span class="keys">　← → 鍵換頁</span></div>
+<script>
+{
+const SLIDES = [{"id": "cover", "layout": "cover", "html": "<h1>CNC 零件到底貴在哪裡？<\/h1>\n<p>它在解決什麼問題？為什麼選它，不選別的？<\/p>\n<p>開心的機械 Wiki・CNC 省錢篇<\/p>", "cites": [{"t": "CNC 省錢篇：零件到底貴在哪裡", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-cost-guide"}], "illustrative": false}, {"id": "question", "layout": "statement", "html": "<h2>先問一個問題<\/h2>\n<p>同一個零件，換個畫法，報價可以差很多。<\/p>\n<p>報價最大的一塊，通常是<strong>機器要切多久<\/strong>。這份簡報一條一條看：每條規則在解決什麼問題？<\/p>\n<blockquote>\n<p><strong>CNC<\/strong>：電腦數值控制。刀怎麼走由電腦照程式控制，不是人手搖。<\/p>\n<\/blockquote>", "cites": [{"t": "CNC 省錢篇：零件到底貴在哪裡", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-cost-guide"}, {"t": "CNC 加工省錢的 14 個設計技巧", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hubs-cost-2026"}], "illustrative": false}, {"id": "what", "layout": "figure", "html": "<h2>CNC 主要有兩種：差在誰在轉<\/h2>\n<div class=\"fig\"><svg viewBox=\"0 0 760 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" class=\"fig-svg\" aria-label=\"示意圖：左邊是銑削，刀子在轉、工件不動；右邊是車削，工件在轉、刀子不轉\">\n<defs><marker id=\"mvt-ar\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" class=\"f-ka\"/><\/marker><\/defs>\n<text x=\"40\" y=\"30\" class=\"f-h\">銑削（milling）：刀子轉，工件不動<\/text>\n<rect x=\"70\" y=\"170\" width=\"250\" height=\"90\" class=\"f-out\"/>\n<path d=\"M150,170 L150,205 L240,205 L240,170\" class=\"f-hold\"/>\n<rect x=\"175\" y=\"70\" width=\"40\" height=\"115\" rx=\"4\" class=\"f-in\"/>\n<line x1=\"186\" y1=\"78\" x2=\"204\" y2=\"98\" class=\"f-s\"/><line x1=\"186\" y1=\"102\" x2=\"204\" y2=\"122\" class=\"f-s\"/><line x1=\"186\" y1=\"126\" x2=\"204\" y2=\"146\" class=\"f-s\"/><line x1=\"186\" y1=\"150\" x2=\"204\" y2=\"170\" class=\"f-s\"/>\n<path d=\"M160,62 A36,12 0 1,0 232,62\" class=\"f-a\" marker-end=\"url(#mvt-ar)\"/>\n<text x=\"245\" y=\"66\" class=\"f-lab\">刀高速旋轉<\/text>\n<text x=\"245\" y=\"130\" class=\"f-lab\">刀往下、往旁邊移動<\/text>\n<text x=\"245\" y=\"148\" class=\"f-lab\">把材料一層層挖掉<\/text>\n<text x=\"85\" y=\"285\" class=\"f-lab\">工件（方料）夾在機台上，不動<\/text>\n<line x1=\"380\" y1=\"40\" x2=\"380\" y2=\"300\" class=\"f-zero\"/>\n<text x=\"410\" y=\"30\" class=\"f-h\">車削（turning）：工件轉，刀子不轉<\/text>\n<rect x=\"440\" y=\"150\" width=\"250\" height=\"70\" rx=\"6\" class=\"f-out\"/>\n<ellipse cx=\"440\" cy=\"185\" rx=\"12\" ry=\"35\" class=\"f-out\"/>\n<path d=\"M425,120 A14,40 0 1,1 425,250\" class=\"f-a\" marker-end=\"url(#mvt-ar)\"/>\n<text x=\"410\" y=\"112\" class=\"f-lab\">工件高速旋轉<\/text>\n<path d=\"M600,280 L585,222 L615,222 Z\" class=\"f-in\"/>\n<rect x=\"590\" y=\"280\" width=\"20\" height=\"30\" class=\"f-in\"/>\n<text x=\"625\" y=\"262\" class=\"f-lab\">車刀不轉，<\/text>\n<text x=\"625\" y=\"280\" class=\"f-lab\">只左右、前後移動<\/text>\n<text x=\"440\" y=\"246\" class=\"f-lab\">適合圓的零件：軸、套筒<\/text>\n<text x=\"40\" y=\"322\" class=\"f-note\">示意，非真實尺寸<\/text>\n<\/svg>\n<\/div>\n<blockquote>\n<p><strong>銑削<\/strong>：刀轉、工件不動，把方料挖出形狀。<strong>車削<\/strong>：工件轉、刀不轉，車出圓的零件。<\/p>\n<\/blockquote>", "cites": [{"t": "CNC 銑削", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-milling"}, {"t": "CNC 車削", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-turning"}], "illustrative": false}, {"id": "four", "layout": "bullets", "html": "<h2>錢花在哪裡：四個來源<\/h2>\n<ul>\n<li><strong>加工時間<\/strong>：切越久越貴，通常是最大的一項。<\/li>\n<li><strong>開機成本<\/strong>：準備檔案、規劃流程，做幾件都要花。<\/li>\n<li><strong>難做的形狀<\/strong>：很薄的牆、要求很精準的尺寸，要放慢、多檢查。<\/li>\n<li><strong>材料<\/strong>：價格，加上好不好切。<\/li>\n<\/ul>\n<p>所以省錢規則都在做四件事：<strong>少切、快切、少換刀、少翻面。<\/strong><\/p>", "cites": [{"t": "CNC 加工省錢的 14 個設計技巧", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hubs-cost-2026"}, {"t": "CNC 省錢篇：零件到底貴在哪裡", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-cost-guide"}], "illustrative": false}, {"id": "tool", "layout": "bullets", "html": "<h2>一切從刀的形狀開始<\/h2>\n<ul>\n<li>刀是<strong>圓柱形<\/strong>的 → 挖出來的內角一定是圓的。<\/li>\n<li>刀越大，每圈削越多 → 切得越快。<\/li>\n<li>刀伸越長越會晃 → 最舒服的深度約是刀徑的 2–3 倍。<\/li>\n<\/ul>\n<blockquote>\n<p><strong>端銑刀<\/strong>：銑床最常用的刀，像一根有刃的圓棒，側面和底部都能切。<\/p>\n<\/blockquote>", "cites": [{"t": "端銑刀", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#end-mill"}], "illustrative": false}, {"id": "corner", "layout": "figure", "html": "<h2>規則 1：內角畫圓角<\/h2>\n<div class=\"fig\"><svg viewBox=\"0 0 760 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" class=\"fig-svg\" aria-label=\"示意圖：從上往下看凹槽的一個角。左：圖面畫尖角，圓刀碰不到角落；中：圓角等於刀的半徑；右：在角落加清角，方形零件的角可以塞到底\">\n<text x=\"20\" y=\"28\" class=\"f-h\">從上往下看凹槽的一個角落<\/text>\n<text x=\"40\" y=\"62\" class=\"f-lab\">① 圖面畫尖角<\/text>\n<path d=\"M40,300 L40,90 L230,90\" class=\"f-a\"/>\n<path d=\"M40,90 L80,90 A40,40 0 0,0 40,130 Z\" class=\"f-hold\"/>\n<circle cx=\"80\" cy=\"130\" r=\"40\" class=\"f-out\"/>\n<circle cx=\"80\" cy=\"130\" r=\"3\" class=\"f-ka\"/>\n<text x=\"130\" y=\"135\" class=\"f-lab\">圓刀碰不到角落<\/text>\n<text x=\"130\" y=\"153\" class=\"f-lab\">（黃色那塊切不到）<\/text>\n<text x=\"40\" y=\"200\" class=\"f-note\">要尖角只能換很小的刀，<\/text>\n<text x=\"40\" y=\"216\" class=\"f-note\">或用放電加工，又慢又貴<\/text>\n<text x=\"290\" y=\"62\" class=\"f-lab\">② 圓角 = 刀的半徑<\/text>\n<path d=\"M290,300 L290,130 A40,40 0 0,1 330,90 L480,90\" class=\"f-b\"/>\n<circle cx=\"330\" cy=\"130\" r=\"40\" class=\"f-out\" opacity=\".5\"/>\n<line x1=\"330\" y1=\"130\" x2=\"301.7\" y2=\"101.7\" class=\"f-s\"/>\n<text x=\"338\" y=\"150\" class=\"f-lab\">R = 刀的半徑<\/text>\n<text x=\"290\" y=\"200\" class=\"f-note\">圓角畫大一點，<\/text>\n<text x=\"290\" y=\"216\" class=\"f-note\">就能用大刀切得快<\/text>\n<text x=\"530\" y=\"62\" class=\"f-lab\">③ 需要尖角：加清角<\/text>\n<rect x=\"531\" y=\"91\" width=\"150\" height=\"150\" class=\"f-hold\"/>\n<path d=\"M530,300 L530,112 A22,22 0 1,1 552,90 L740,90\" class=\"f-b\"/>\n<circle cx=\"530\" cy=\"90\" r=\"2.5\" class=\"f-ka\"/>\n<text x=\"560\" y=\"170\" class=\"f-lab\">方形零件的角<\/text>\n<text x=\"560\" y=\"188\" class=\"f-lab\">塞得到底<\/text>\n<text x=\"545\" y=\"296\" class=\"f-note\">清角：角落的 U 形缺口<\/text>\n<text x=\"20\" y=\"322\" class=\"f-note\">示意，非真實尺寸<\/text>\n<\/svg>\n<\/div>\n<blockquote>\n<p><strong>內角圓角<\/strong>：凹槽角落被刀切出的圓弧，至少畫到槽深的 1/3。<strong>清角<\/strong>：真要尖角時，在角落多挖的 U 形缺口。<\/p>\n<\/blockquote>", "cites": [{"t": "內角圓角與清角", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#internal-corner-radius"}], "illustrative": false}, {"id": "corner2", "layout": "bullets", "html": "<h2>圓角畫多大？<\/h2>\n<ul>\n<li>12 mm 深的槽，圓角畫 5 mm 以上，工廠就能用 8 mm 的刀切。<\/li>\n<li>所有內角用<strong>同一個半徑<\/strong>，就不用換刀。<\/li>\n<li>真的要塞方形零件：加 6.35 mm 寬的清角，可以做到約 32 mm 深。<\/li>\n<\/ul>", "cites": [{"t": "內角圓角與清角", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#internal-corner-radius"}], "illustrative": false}, {"id": "depth", "layout": "figure", "html": "<h2>規則 2：凹槽別挖太深<\/h2>\n<p>FIGTOKENcavity-depthFIGTOKEN\n就像握筷子的尾端攪碗底：伸越長越晃。建議深度不超過凹槽寬度的 4 倍；更深就考慮拆成兩個零件。<\/p>", "cites": [{"t": "凹槽深度", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cavity-depth"}], "illustrative": false}, {"id": "wall", "layout": "bullets", "html": "<h2>規則 3：牆別太薄<\/h2>\n<ul>\n<li>建議最小牆厚：金屬 <strong>0.8 mm<\/strong>、塑膠 <strong>1.5 mm<\/strong>。<\/li>\n<li>太薄會顫振，只能分很多次、每次削一點；切完還可能翹。<\/li>\n<li>牆真的要很薄？改用<strong>板金<\/strong>折出來通常比較便宜。<\/li>\n<\/ul>\n<blockquote>\n<p><strong>顫振<\/strong>：刀和工件一起抖，表面留下波紋、尺寸不準。<\/p>\n<\/blockquote>", "cites": [{"t": "薄牆與細高特徵", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#thin-wall"}], "illustrative": false}, {"id": "hole", "layout": "figure", "html": "<h2>規則 4：孔用標準尺寸，螺紋別攻太深<\/h2>\n<div class=\"fig\"><svg viewBox=\"0 0 760 320\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" class=\"fig-svg\" aria-label=\"示意圖：左邊是通孔，右邊是盲孔。盲孔的螺紋長度約 3 倍孔徑就夠，底部留一段不攻牙\">\n<text x=\"20\" y=\"28\" class=\"f-h\">從側面切開看孔<\/text>\n<text x=\"60\" y=\"62\" class=\"f-lab\">通孔：穿過去<\/text>\n<rect x=\"40\" y=\"80\" width=\"90\" height=\"200\" class=\"f-out\"/><rect x=\"170\" y=\"80\" width=\"90\" height=\"200\" class=\"f-out\"/>\n<path d=\"M130,90 l40,10 M130,110 l40,10 M130,130 l40,10 M130,150 l40,10 M130,170 l40,10 M130,190 l40,10 M130,210 l40,10 M130,230 l40,10 M130,250 l40,10\" class=\"f-s\"/>\n<text x=\"40\" y=\"300\" class=\"f-note\">鐵屑從下面掉出去，好做<\/text>\n<text x=\"420\" y=\"62\" class=\"f-lab\">盲孔：有底<\/text>\n<path d=\"M400,80 L490,80 L490,250 L510,272 L530,250 L530,80 L620,80 L620,290 L400,290 Z\" class=\"f-out\"/>\n<path d=\"M490,90 l40,10 M490,110 l40,10 M490,130 l40,10 M490,150 l40,10 M490,170 l40,10 M490,190 l40,10\" class=\"f-s\"/>\n<rect x=\"490\" y=\"205\" width=\"40\" height=\"45\" class=\"f-hold\"/>\n<line x1=\"640\" y1=\"80\" x2=\"640\" y2=\"200\" class=\"f-a\"/><line x1=\"632\" y1=\"80\" x2=\"648\" y2=\"80\" class=\"f-a\"/><line x1=\"632\" y1=\"200\" x2=\"648\" y2=\"200\" class=\"f-a\"/>\n<text x=\"655\" y=\"135\" class=\"f-lab\">螺紋長度<\/text>\n<text x=\"655\" y=\"153\" class=\"f-lab\">約 3 倍孔徑就夠<\/text>\n<text x=\"655\" y=\"230\" class=\"f-lab\">底部留一段<\/text>\n<text x=\"655\" y=\"248\" class=\"f-lab\">不攻牙<\/text>\n<text x=\"420\" y=\"310\" class=\"f-note\">底部尖尖的是鑽頭留下的錐形<\/text>\n<text x=\"20\" y=\"318\" class=\"f-note\"><\/text>\n<text x=\"300\" y=\"300\" class=\"f-note\">示意，非真實尺寸<\/text>\n<\/svg>\n<\/div>\n<blockquote>\n<p><strong>盲孔<\/strong>：有底、沒穿透的孔。<strong>攻牙<\/strong>：用絲攻在孔壁切出螺紋，讓螺絲鎖得進去。螺紋長度 3 倍孔徑就夠。<\/p>\n<\/blockquote>", "cites": [{"t": "孔與螺紋", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hole-thread"}], "illustrative": false}, {"id": "tol", "layout": "figure", "html": "<h2>規則 5：只在需要的地方標公差<\/h2>\n<div class=\"fig\"><svg viewBox=\"0 0 760 300\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" class=\"fig-svg\" aria-label=\"示意圖：公差像停車格。上面是寬的公差帶，下面是窄的公差帶；做出來的尺寸落在帶子裡就合格，帶子越窄越難、越貴\">\n<text x=\"20\" y=\"28\" class=\"f-h\">公差像停車格：尺寸落在格子裡就合格<\/text>\n<text x=\"40\" y=\"70\" class=\"f-lab\">寬的公差（例如 ±0.1）<\/text>\n<rect x=\"230\" y=\"50\" width=\"300\" height=\"40\" class=\"f-hold\"/>\n<line x1=\"380\" y1=\"44\" x2=\"380\" y2=\"96\" class=\"f-band\"/>\n<line x1=\"230\" y1=\"50\" x2=\"230\" y2=\"90\" class=\"f-a\"/><line x1=\"530\" y1=\"50\" x2=\"530\" y2=\"90\" class=\"f-a\"/>\n<circle cx=\"300\" cy=\"70\" r=\"7\" class=\"f-kb\"/><circle cx=\"410\" cy=\"70\" r=\"7\" class=\"f-kb\"/><circle cx=\"490\" cy=\"70\" r=\"7\" class=\"f-kb\"/>\n<text x=\"545\" y=\"75\" class=\"f-lab\">好停：照平常速度切<\/text>\n<text x=\"40\" y=\"170\" class=\"f-lab\">窄的公差（例如 ±0.02）<\/text>\n<rect x=\"350\" y=\"150\" width=\"60\" height=\"40\" class=\"f-hold\"/>\n<line x1=\"380\" y1=\"144\" x2=\"380\" y2=\"196\" class=\"f-band\"/>\n<line x1=\"350\" y1=\"150\" x2=\"350\" y2=\"190\" class=\"f-a\"/><line x1=\"410\" y1=\"150\" x2=\"410\" y2=\"190\" class=\"f-a\"/>\n<circle cx=\"370\" cy=\"170\" r=\"7\" class=\"f-kb\"/><circle cx=\"300\" cy=\"170\" r=\"7\" class=\"f-ka\"/><circle cx=\"470\" cy=\"170\" r=\"7\" class=\"f-ka\"/>\n<text x=\"425\" y=\"175\" class=\"f-lab\">難停：要慢慢切、多量幾次<\/text>\n<text x=\"250\" y=\"215\" class=\"f-note\">黑點：超出格子，不合格<\/text>\n<text x=\"380\" y=\"240\" class=\"f-tick\" text-anchor=\"middle\">圖面上的尺寸（例如 50）<\/text>\n<text x=\"20\" y=\"290\" class=\"f-note\">示意，非真實尺寸。藍點是合格的零件，黑點是不合格的零件<\/text>\n<\/svg>\n<\/div>\n<blockquote>\n<p><strong>公差<\/strong>：尺寸可以差多少。沒標的尺寸，三家工廠的標準都約 ±0.13 mm。<\/p>\n<\/blockquote>", "cites": [{"t": "公差", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#tolerance"}], "illustrative": false}, {"id": "general", "layout": "table", "html": "<h2>圖面角落的「ISO 2768-m」是什麼<\/h2>\n<table>\n<thead>\n<tr>\n<th>尺寸範圍（mm）<\/th>\n<th>m 級允許差多少<\/th>\n<\/tr>\n<\/thead>\n<tbody>\n<tr>\n<td>6–30<\/td>\n<td>±0.2 mm<\/td>\n<\/tr>\n<tr>\n<td>30–120<\/td>\n<td>±0.3 mm<\/td>\n<\/tr>\n<tr>\n<td>120–400<\/td>\n<td>±0.5 mm<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p>尺寸越大，允許差越多。<\/p>\n<blockquote>\n<p><strong>一般公差<\/strong>：沒寫公差的尺寸共用的規則。<strong>ISO 2768<\/strong>：最常用的一般公差國際標準，m 是中級。<\/p>\n<\/blockquote>", "cites": [{"t": "一般公差", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#general-tolerance"}, {"t": "一般公差標準 ISO 2768-1", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#iso2768-1989"}], "illustrative": false}, {"id": "setup", "layout": "figure", "html": "<h2>規則 6：少翻面<\/h2>\n<div class=\"fig\"><svg viewBox=\"0 0 760 320\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" class=\"fig-svg\" aria-label=\"示意圖：零件兩面都有孔時，第一次裝夾做上面的孔，拆下翻面，第二次裝夾再做另一面的孔\">\n<defs><marker id=\"ms-ar\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto\"><path d=\"M0,0 L10,5 L0,10 z\" class=\"f-ka\"/><\/marker><\/defs>\n<text x=\"20\" y=\"28\" class=\"f-h\">兩面都有孔 → 要裝夾兩次（刀只能從上面下來）<\/text>\n<text x=\"60\" y=\"62\" class=\"f-lab\">第 1 次裝夾：做上面的孔<\/text>\n<rect x=\"60\" y=\"170\" width=\"220\" height=\"60\" class=\"f-out\"/>\n<rect x=\"105\" y=\"170\" width=\"18\" height=\"30\" class=\"f-hold\"/><rect x=\"215\" y=\"170\" width=\"18\" height=\"30\" class=\"f-hold\"/>\n<rect x=\"60\" y=\"230\" width=\"220\" height=\"16\" class=\"f-ka\"/><rect x=\"40\" y=\"185\" width=\"20\" height=\"45\" class=\"f-ka\"/><rect x=\"280\" y=\"185\" width=\"20\" height=\"45\" class=\"f-ka\"/>\n<rect x=\"105\" y=\"80\" width=\"18\" height=\"80\" class=\"f-in\"/>\n<text x=\"60\" y=\"270\" class=\"f-note\">黑色是夾具（虎鉗）<\/text>\n<path d=\"M320,200 C360,150 400,150 440,200\" class=\"f-a\" marker-end=\"url(#ms-ar)\"/>\n<text x=\"330\" y=\"140\" class=\"f-lab\">停機、拆下、翻面<\/text>\n<text x=\"330\" y=\"158\" class=\"f-lab\">重新夾、重新對位<\/text>\n<text x=\"470\" y=\"62\" class=\"f-lab\">第 2 次裝夾：做另一面的孔<\/text>\n<rect x=\"470\" y=\"170\" width=\"220\" height=\"60\" class=\"f-out\"/>\n<rect x=\"515\" y=\"200\" width=\"18\" height=\"30\" class=\"f-hold\"/><rect x=\"625\" y=\"200\" width=\"18\" height=\"30\" class=\"f-hold\"/>\n<rect x=\"570\" y=\"170\" width=\"18\" height=\"30\" class=\"f-hold\"/>\n<rect x=\"470\" y=\"230\" width=\"220\" height=\"16\" class=\"f-ka\"/><rect x=\"450\" y=\"185\" width=\"20\" height=\"45\" class=\"f-ka\"/><rect x=\"690\" y=\"185\" width=\"20\" height=\"45\" class=\"f-ka\"/>\n<rect x=\"570\" y=\"80\" width=\"18\" height=\"80\" class=\"f-in\"/>\n<text x=\"470\" y=\"270\" class=\"f-note\">翻過來後，原本的孔在下面<\/text>\n<text x=\"20\" y=\"310\" class=\"f-note\">示意，非真實尺寸。每多一次裝夾：多一次人工，兩面之間的位置也多一點誤差<\/text>\n<\/svg>\n<\/div>\n<blockquote>\n<p><strong>裝夾<\/strong>：把工件夾上機台並對好位置。兩面都有孔就要夾兩次。<strong>5 軸<\/strong>：機器自己會轉，少翻面，但比較貴。<\/p>\n<\/blockquote>", "cites": [{"t": "裝夾次數與拆件", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#machine-setup"}], "illustrative": false}, {"id": "material", "layout": "table", "html": "<h2>規則 7：選好切、便宜的材料<\/h2>\n<table>\n<thead>\n<tr>\n<th>材料（150×150×25 mm 板）<\/th>\n<th>價格（美元）<\/th>\n<\/tr>\n<\/thead>\n<tbody>\n<tr>\n<td>6061 鋁<\/td>\n<td>25<\/td>\n<\/tr>\n<tr>\n<td>304 不鏽鋼<\/td>\n<td>90<\/td>\n<\/tr>\n<tr>\n<td>PEEK 塑膠<\/td>\n<td>300<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p>不鏽鋼常要花鋁的 2 倍以上時間來切。<\/p>\n<blockquote>\n<p><strong>可切削性<\/strong>：材料好不好切的分數，越高越好切。<\/p>\n<\/blockquote>", "cites": [{"t": "材料好不好切", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#machinability"}], "illustrative": false}, {"id": "finish", "layout": "bullets", "html": "<h2>規則 8、9：一種處理就好，一次多訂幾件<\/h2>\n<ul>\n<li>混用多種表面處理，要多做遮蔽，多一道工。<\/li>\n<li>開機成本是固定的：1 件加到 5 件，單價約減半。<\/li>\n<li>1,000 件以上，單價可降 5–10 倍。<\/li>\n<\/ul>\n<blockquote>\n<p><strong>表面處理<\/strong>：切完後加的處理。<strong>陽極處理<\/strong>：鋁件常用，在表面長一層硬膜。<\/p>\n<\/blockquote>", "cites": [{"t": "表面處理", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#surface-finish"}, {"t": "數量與開機成本", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#batch-size"}], "illustrative": false}, {"id": "batch", "layout": "figure", "html": "<h2>為什麼打樣一件那麼貴<\/h2>\n<p>FIGTOKENbatch-sizeFIGTOKEN\n像煮一鍋湯：洗菜、開火的時間跟煮幾碗無關。<\/p>", "cites": [{"t": "數量與開機成本", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#batch-size"}], "illustrative": true}, {"id": "answers", "layout": "table", "html": "<h2>回到核心問題<\/h2>\n<table>\n<thead>\n<tr>\n<th>規則<\/th>\n<th>解決什麼問題<\/th>\n<th>為什麼選它<\/th>\n<\/tr>\n<\/thead>\n<tbody>\n<tr>\n<td>內角圓角<\/td>\n<td>刀是圓的<\/td>\n<td>大圓角能用大刀<\/td>\n<\/tr>\n<tr>\n<td>淺槽<\/td>\n<td>刀伸長會晃<\/td>\n<td>穩、快；太深就拆件<\/td>\n<\/tr>\n<tr>\n<td>厚一點的牆<\/td>\n<td>薄牆會抖會翹<\/td>\n<td>加厚最便宜<\/td>\n<\/tr>\n<tr>\n<td>標準孔、短螺紋<\/td>\n<td>特殊尺寸要換刀<\/td>\n<td>一次到位、不斷絲攻<\/td>\n<\/tr>\n<tr>\n<td>只標必要公差<\/td>\n<td>越嚴越慢<\/td>\n<td>其他交給一般公差<\/td>\n<\/tr>\n<tr>\n<td>少翻面<\/td>\n<td>每翻一次重新對位<\/td>\n<td>一次夾完最省<\/td>\n<\/tr>\n<\/tbody>\n<\/table>", "cites": [{"t": "CNC 省錢篇：零件到底貴在哪裡", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-cost-guide"}], "illustrative": false}, {"id": "quiz", "layout": "quiz", "html": "<h2>小測驗<\/h2><div class=\"quiz\"><div class=\"q\" data-q=\"0\"><p class=\"qq\">1. 一個 15 mm 深的口袋，內角圓角至少要畫多大，才符合「1/3 深度」的規則？<\/p><div class=\"opts\"><button class=\"opt\" data-ok=\"0\">1 mm<\/button><button class=\"opt\" data-ok=\"1\">5 mm<\/button><button class=\"opt\" data-ok=\"0\">15 mm<\/button><\/div><p class=\"why\" hidden>15 的 1/3 是 5（算術），畫 R5 以上，工廠就能用比較大的刀。<\/p><\/div><div class=\"q\" data-q=\"1\"><p class=\"qq\">2. 要鎖 M6 螺絲，螺紋大概攻多深就夠？<\/p><div class=\"opts\"><button class=\"opt\" data-ok=\"0\">6 mm<\/button><button class=\"opt\" data-ok=\"1\">18 mm 左右<\/button><button class=\"opt\" data-ok=\"0\">越深越好<\/button><\/div><p class=\"why\" hidden>3 倍孔徑就夠；攻太深強度不會變強，絲攻還容易斷。<\/p><\/div><div class=\"q\" data-q=\"2\"><p class=\"qq\">3. 標題欄寫 ISO 2768-m，一個沒標公差的 80 mm 尺寸可以差多少？<\/p><div class=\"opts\"><button class=\"opt\" data-ok=\"0\">±0.1 mm<\/button><button class=\"opt\" data-ok=\"1\">±0.3 mm<\/button><button class=\"opt\" data-ok=\"0\">±1 mm<\/button><\/div><p class=\"why\" hidden>80 落在 30–120 mm 那一格，m 級是 ±0.3 mm（查表的算術）。<\/p><\/div><\/div><p class=\"score\" aria-live=\"polite\"><\/p>", "cites": [{"t": "內角圓角與清角", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#internal-corner-radius"}, {"t": "孔與螺紋", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hole-thread"}, {"t": "一般公差", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#general-tolerance"}], "illustrative": false}, {"id": "takeaway", "layout": "statement", "html": "<h2>一句話帶走<\/h2>\n<p><strong>畫每一個形狀之前，先想：刀伸不伸得到、要切多久、要翻幾次面。<\/strong><\/p>\n<p>真的需要的地方就付錢；不需要的地方，交給工廠最順手的做法。<\/p>", "cites": [{"t": "CNC 省錢篇：零件到底貴在哪裡", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#cnc-cost-guide"}], "illustrative": false}, {"id": "sources", "layout": "sources", "html": "<h2>參考資料<\/h2>\n<ul>\n<li>Protolabs Network (Hubs). <em>14 proven design tips to reduce the cost of CNC machining<\/em>.（使用者指定）<\/li>\n<li>Protolabs Network (Hubs). <em>How to design parts for CNC machining<\/em>.<\/li>\n<li>Protolabs Network (Hubs). <em>What is CNC machining?<\/em><\/li>\n<li>Protolabs. <em>How to Reduce CNC Machining Costs<\/em>.<\/li>\n<li>Lichtig, A. (2020). <em>How to Reduce CNC Machining Costs<\/em>. Xometry.<\/li>\n<li>ISO 2768-1:1989 <em>General tolerances<\/em>（以 IS 2102 Part 1:1993 閱讀）.<\/li>\n<\/ul>\n<p>前四份都屬於 Protolabs 集團。所有數字都能在 Wiki 的來源頁查到。<\/p>", "cites": [{"t": "CNC 加工省錢的 14 個設計技巧", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hubs-cost-2026"}, {"t": "如何降低 CNC 加工成本", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#protolabs-cost-2026"}, {"t": "降低 CNC 加工成本的十個方法", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#xometry-cost-2020"}, {"t": "CNC 零件設計指南", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hubs-design-2026"}, {"t": "什麼是 CNC 加工", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#hubs-cnc-basics-2026"}, {"t": "一般公差標準 ISO 2768-1", "h": "https://cheehan2388.github.io/Mechanical_wiki/cnc-cost.html#iso2768-1989"}], "illustrative": false}];
+const stage = document.getElementById('stage');
+const twins = `<svg class="twins" viewBox="0 0 470 470" aria-hidden="true">
+  <path class="tw-gap" d="M170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 Z"/>
+  <path class="tw-a" d="M60,300 L170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 L420,300 L420,430 L60,430 Z"/>
+  <path class="tw-b" d="M225,90 L265,90 L265,290 L225,290 Z M225,130 L265,160 M225,180 L265,210 M225,230 L265,260"/>
+  <path class="tw-b" d="M205,70 A40,14 0 1,0 285,70"/></svg>`;
+stage.innerHTML = SLIDES.map((s, i) => `
+  <section class="s ly-${s.layout}" id="s${i + 1}" aria-label="第 ${i + 1} 頁">
+    ${s.html}${s.layout === 'cover' ? twins : ''}
+    <div class="foot"><span class="src">知識來源（Wiki）：${s.cites.map(c => `<a href="${c.h}" target="_top">${c.t}</a>`).join('、')}</span>
+      ${s.illustrative ? '<span class="tag ill">示意數字</span>' : ''}
+      <span class="n">${i + 1} / ${SLIDES.length}</span></div>
+  </section>`).join('');
+const secs = [...stage.querySelectorAll('.s')];
+let cur = 0;
+function fit(sec) {
+  if (document.body.classList.contains('read')) return;
+  let fs = 29;
+  sec.style.setProperty('--fs', fs + 'px');
+  const limit = 720 - 92;
+  const tooTall = () => [...sec.children].filter(c => !c.classList.contains('foot') && !c.classList.contains('twins'))
+    .some(c => c.offsetTop + c.offsetHeight > limit);
+  while (tooTall() && fs > 17) { fs -= 1; sec.style.setProperty('--fs', fs + 'px'); }
+}
+function show(i) {
+  cur = Math.max(0, Math.min(SLIDES.length - 1, i));
+  secs.forEach((s, k) => s.classList.toggle('on', k === cur));
+  fit(secs[cur]);
+  document.getElementById('bar').style.width = ((cur + 1) / SLIDES.length * 100) + '%';
+  if (location.hash !== '#s' + (cur + 1)) history.replaceState(null, '', '#s' + (cur + 1));
+}
+function scale() {
+  const read = innerWidth < 760 || innerHeight < 430;
+  document.body.classList.toggle('read', read);
+  if (read) { secs.forEach(s => s.classList.add('on')); stage.style.transform = ''; return; }
+  secs.forEach((s, k) => s.classList.toggle('on', k === cur));
+  const k = Math.min(innerWidth / 1280, innerHeight / 720) * 0.96;
+  stage.style.transform = `scale(${k})`;
+  fit(secs[cur]);
+}
+document.getElementById('prev').onclick = () => show(cur - 1);
+document.getElementById('next').onclick = () => show(cur + 1);
+addEventListener('keydown', e => {
+  if (document.body.classList.contains('read')) return;
+  if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(cur + 1); }
+  if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(cur - 1); }
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End') show(SLIDES.length - 1);
+});
+let tx = null;
+stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive: true});
+stage.addEventListener('touchend', e => {
+  if (tx === null || document.body.classList.contains('read')) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  tx = null;
+});
+for (const q of stage.querySelectorAll('.q')) {
+  q.addEventListener('click', e => {
+    const b = e.target.closest('.opt');
+    if (!b || b.disabled) return;
+    const btns = [...q.querySelectorAll('.opt')];
+    btns.forEach(x => { x.disabled = true; if (x.dataset.ok === '1') x.classList.add('right'); });
+    if (b.dataset.ok !== '1') b.classList.add('wrong');
+    q.dataset.done = b.dataset.ok;
+    q.querySelector('.why').hidden = false;
+    const all = [...stage.querySelectorAll('.q')], done = all.filter(x => x.dataset.done !== undefined);
+    const sc = q.closest('.s').querySelector('.score');
+    if (done.length === all.length) sc.textContent = `答對 ${done.filter(x => x.dataset.done === '1').length} / ${all.length} 題`;
+    fit(q.closest('.s'));
+  });
+}
+const m = location.hash.match(/^#s(\d+)$/);
+cur = m ? Number(m[1]) - 1 : 0;
+addEventListener('resize', scale);
+addEventListener('hashchange', () => { const h = location.hash.match(/^#s(\d+)$/); if (h) show(Number(h[1]) - 1); });
+scale(); show(cur);
+}
+</script>
+</body>
+</html>

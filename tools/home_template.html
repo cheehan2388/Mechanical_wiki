@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>開心的 Quant Wiki</title>
-<meta name="description" content="用白話整理量化交易研究：交易策略到底在賺誰的錢？">
+<title>開心的機械 Wiki</title>
+<meta name="description" content="用白話整理機械知識：零件、加工、設計規則。它在解決什麼問題？為什麼選它，不選別的？">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /* VOICE: 一間小研究室的門口：友善、直接，三秒內知道該點哪裡
-   IDEA: 交易帳簿的封面加上一張「最新更新」公告欄
-   PICTURE: 兩條分開又靠回來的雙胞胎線，放在主要入口（簡報）旁邊
+   IDEA: 加工手冊的封面加上一張「最新更新」公告欄
+   PICTURE: 一把端銑刀和它挖出的圓角凹槽，放在主要入口（簡報）旁邊
    COLOUR and TYPE: 白底、墨色 #101418、黃 #ffd84a 只給主要按鈕和「最新」；Manrope + Noto Sans TC
    LAYOUT: 左邊三個入口（簡報最大），右邊最新更新；窄螢幕依序堆疊 */
 :root{color-scheme:light dark;
@@ -79,31 +79,32 @@ footer a{font-weight:700;color:var(--ink)}
 </head>
 <body>
 <div class="wrap">
-  <header><div class="brand">開心的 Quant Wiki</div></header>
+  <header><div class="brand">開心的機械 Wiki</div></header>
   <section class="hero">
-    <h1>交易策略到底在<mark>賺誰的錢</mark>？</h1>
-    <p>用白話整理量化交易的研究。每個數字都查得到出處，不需要任何交易背景。</p>
+    <h1>它在<mark>解決什麼問題</mark>？為什麼選它，不選別的？</h1>
+    <p>用白話整理零件、加工和設計規則。每個數字都查得到出處，不需要機械背景。</p>
   </section>
   <div class="grid">
     <main class="main">
       <a class="primary" href="slides.html">
         <div>
           <p class="step">第一次來？從這裡開始</p>
-          <h2>配對交易：賭雙胞胎會回來</h2>
-          <p>16 頁教學簡報，從原理、證據一路講到 LTCM 的故事，最後有 3 題小測驗。</p>
-          <span class="btn">開始看簡報・約 10 分鐘 →</span>
+          <h2>CNC 零件到底貴在哪裡？</h2>
+          <p>20 頁教學簡報：刀為什麼決定了一切、9 條省錢規則各在解決什麼問題，最後有 3 題小測驗。</p>
+          <span class="btn">開始看簡報・約 12 分鐘 →</span>
         </div>
-        <svg class="twins" viewBox="20 110 430 230" aria-hidden="true">
-          <path class="tw-gap" d="M40,250 C120,240 160,230 200,200 C240,170 260,150 300,150 C340,150 360,190 430,200 L430,210 C360,205 330,300 290,300 C250,300 230,260 200,250 C160,240 120,255 40,255 Z"/>
-          <path class="tw-a" d="M40,255 C120,255 160,240 200,250 C230,260 250,300 290,300 C330,300 360,205 430,210"/>
-          <path class="tw-b" d="M40,250 C120,240 160,230 200,200 C240,170 260,150 300,150 C340,150 360,190 430,200"/>
+        <svg class="twins" viewBox="40 60 420 400" aria-hidden="true">
+          <path class="tw-gap" d="M170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 Z"/>
+          <path class="tw-a" d="M60,300 L170,300 L170,340 A20,20 0 0,0 190,360 L300,360 A20,20 0 0,0 320,340 L320,300 L420,300 L420,430 L60,430 Z"/>
+          <path class="tw-b" d="M225,90 L265,90 L265,290 L225,290 Z M225,130 L265,160 M225,180 L265,210 M225,230 L265,260"/>
+          <path class="tw-b" d="M205,75 A40,14 0 1,0 285,75"/>
         </svg>
       </a>
       <div class="row">
-        <a class="entry" href="pairs.html">
+        <a class="entry" href="cnc-cost.html">
           <h3>想深入或查證：逛 Wiki</h3>
-          <p>配對交易篇共 __PAIRS_N__ 頁：研究、案例、概念。簡報每頁底下的出處都能點進來。</p>
-          <span class="go">進入配對交易篇 →</span>
+          <p>CNC 省錢篇共 __PAIRS_N__ 頁：來源、加工、零件、設計規則。簡報每頁底下的出處都能點進來。</p>
+          <span class="go">進入 CNC 省錢篇 →</span>
         </a>
         <a class="entry" href="process.html">
           <h3>想知道怎麼做出來的</h3>
@@ -124,7 +125,7 @@ footer a{font-weight:700;color:var(--ink)}
       __TOGGLE__
     </aside>
   </div>
-  <footer>最後更新：__LAST__ ・ 原始碼與資料：<a href="__REPO__">GitHub</a> ・ 內容僅供學習，不是投資建議。</footer>
+  <footer>最後更新：__LAST__ ・ 原始碼與資料：<a href="__REPO__">GitHub</a> ・ 內容僅供學習；實際設計以圖面、廠商資料與合作工廠的建議為準。</footer>
 </div>
 <script>
 {

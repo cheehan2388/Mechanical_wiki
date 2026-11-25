@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>流程說明｜開心的機械 Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;
+  --bg:light-dark(#ffffff,#101418);--ink:light-dark(#101418,#e8ecf0);--muted:light-dark(#5b6670,#9aa6b1);
+  --line:light-dark(#e3e7eb,#26303a);--side:light-dark(#f5f7f9,#151b21);--hl:#ffd84a;--hl-ink:#101418}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Manrope","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;overflow-x:clip}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px max(4vw,16px);border-bottom:1px solid var(--line)}
+.top a{font-weight:800;color:var(--ink);text-decoration:none}
+.top .back{font-size:14px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-left:auto}
+article{max-width:860px;margin:0 auto;padding:32px max(4vw,16px) 80px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 16px;text-wrap:balance}
+h2{font-size:24px;margin:44px 0 10px;padding-top:16px;border-top:3px solid var(--ink)}
+h2::before{content:"";display:inline-block;width:12px;height:12px;background:var(--hl);margin-right:10px;vertical-align:2px}
+p,li{max-width:70ch}
+pre{background:var(--side);padding:14px 16px;border-radius:8px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+code{font-size:.92em;background:var(--side);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre code{background:none;padding:0;overflow-wrap:normal}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px;line-height:1.5}
+.scroll{overflow-x:auto;margin:14px 0}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{border-bottom:2px solid var(--ink);white-space:nowrap}
+strong{background:linear-gradient(transparent 62%,rgba(255,216,74,.7) 62%)}
+</style>
+</head>
+<body>
+<div class="top"><a href="index.html">開心的機械 Wiki</a><span>流程說明</span><a class="back" href="index.html">← 回網站首頁</a></div>
+<article><h1>流程說明：這份簡報怎麼從 Wiki 做出來</h1>
+<p>這一頁寫給想知道「怎麼做」的人，不是給讀者的成品。成品是<a href="slides.html">簡報</a>和 <a href="cnc-cost.html">Wiki</a>。</p>
+<h2>核心原則</h2>
+<p><strong>簡報只能來自 Wiki，Wiki 只能來自有出處的資料，每一步都有程式把關。</strong></p>
+<h2>兩個迴圈</h2>
+<pre><code>A 收錄迴圈（每份資料跑一次）
+  ① 讀資料 → ② 寫來源頁 → ③ 更新相關頁 → ④ check.py
+       ▲                        ▲               │
+       │                        └── 沒過：修 ───┤
+       └────────── 通過：下一份 ────────────────┘
+
+B 產出迴圈（每頁簡報跑一次）
+  ⑤ 查 Wiki → ⑥ 寫一頁 → ⑦ check_slides.py → ⑧ 產生 HTML → ⑨ 截圖看一眼
+       ▲           ▲            │                     ▲             │
+       │           └─ 沒過：重寫┤                     └─ 版面壞了 ──┘
+       └─ Wiki 沒有：回到 A 補收錄
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>節點</th>
+<th>做什麼</th>
+<th>誰檢查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 讀資料</td>
+<td>讀原文，寫下讀了全文、節錄還是二手</td>
+<td>來源頁「讀了什麼」一定要寫（check.py）</td>
+</tr>
+<tr>
+<td>② 寫來源頁</td>
+<td>固定 10 個段落；原文和推論分開</td>
+<td>check.py：段落順序、四問題不能空</td>
+</tr>
+<tr>
+<td>③ 更新相關頁</td>
+<td>有就更新、沒有才新增；概念要 2 份來源才拆頁</td>
+<td>check.py：連結存在、數字找得到出處、目錄和紀錄齊全</td>
+</tr>
+<tr>
+<td>⑦ 檢查簡報</td>
+<td>數字、術語、字數</td>
+<td>check_slides.py</td>
+</tr>
+<tr>
+<td>⑨ 看一眼</td>
+<td>桌面和手機截圖</td>
+<td>人</td>
+</tr>
+</tbody>
+</table>
+<h2>實際執行的紀錄</h2>
+<table>
+<thead>
+<tr>
+<th>輪</th>
+<th>做了什麼</th>
+<th>檢查第 1 次</th>
+<th>抓到什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#1</td>
+<td>收錄 Hubs 14 招（使用者指定）</td>
+<td>失敗 1 項</td>
+<td>紀錄漏寫</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>收錄 Protolabs，拆出 5 頁</td>
+<td>失敗 1 項＋1 警告</td>
+<td>紀錄漏寫；新頁沒有別頁連到</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>收錄 Xometry，拆出 5 頁</td>
+<td>失敗 1 項＋3 警告</td>
+<td>紀錄漏寫；3 頁沒有別頁連到</td>
+</tr>
+<tr>
+<td>#4–#6</td>
+<td>三份一起收錄（設計指南、入門、ISO 2768）</td>
+<td>失敗 8 項</td>
+<td>相關頁面的原因太短、連到還沒建的頁、紀錄漏寫</td>
+</tr>
+<tr>
+<td>#8</td>
+<td>寫簡報</td>
+<td>失敗 2 項</td>
+<td>術語先用後解釋（其中 1 項是規則誤判）</td>
+</tr>
+<tr>
+<td>測檢查器</td>
+<td>故意塞 6 個錯</td>
+<td>只抓到 2 個</td>
+<td>改檢查器後抓到 5 個</td>
+</tr>
+</tbody>
+</table>
+<p>完整紀錄在 Wiki 的「收錄紀錄」頁。</p>
+<h2>反思</h2>
+<p><strong>哪個節點最常出錯？</strong></p>
+<ol>
+<li><strong>③ 更新相關頁</strong>：每一輪都有「紀錄漏寫」或「新頁沒人連到」。這些是機械性錯誤，下一步應該讓程式自動產生紀錄的骨架、自動提示要補的連結，而不是每次靠檢查抓。</li>
+<li><strong>④ 檢查器本身</strong>：第一版的數字檢查只問「這個數字有沒有出現在來源裡」，塞了 6 個錯只抓到 2 個。機械資料裡 0.8、12、60 這種數字到處都是，很容易「剛好對上」。改成同單位、同一句有相同的詞之後抓到 5 個；漏掉的那個是來源裡真的有一模一樣的句型，這是純文字比對的極限。</li>
+<li><strong>① 讀資料</strong>：廠商文章之間互相矛盾（凹槽深度的「4 倍」有三種寫法），同一篇也會前後不一致（入門文章有三處）。所以規則是全部照原文寫出來，不自己挑一個。</li>
+</ol>
+<p><strong>怎麼調整了流程</strong></p>
+<ul>
+<li><strong>加規則</strong>：同一家公司的多篇文章算「同一個聲音」。前四份都是 Protolabs 集團，所以特地找了 Xometry 和國際標準來對照。</li>
+<li><strong>放寬規則</strong>：一次新增非來源頁的上限從 3 頁改成 5 頁，超過才先問使用者（Quant Wiki 的經驗：3 頁會造成積壓）。</li>
+<li><strong>改規則，不改內容</strong>：封面的標題被「術語先解釋」擋下，判斷是規則誤判，改成封面不算。</li>
+</ul>
+<p><strong>還沒解決的</strong></p>
+<ul>
+<li>「可能相關」的自動提示在這個 Wiki 幾乎全是誤報：來源都是一份清單講十幾條規則，所以每兩個概念頁都共用來源。要改成排除清單型的來源，或提高門檻。</li>
+<li>一次收錄三份，檢查失敗時比較難看出是哪一份造成的；之後還是一份一份來。</li>
+</ul></article>
+<script>
+{for (const t of document.querySelectorAll('table')) {const w = document.createElement('div'); w.className = 'scroll'; t.parentNode.insertBefore(w, t); w.appendChild(t);}}
+</script>
+</body>
+</html>
