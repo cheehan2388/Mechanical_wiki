@@ -18,7 +18,7 @@ CNC 的報價，最大的一塊通常是**機器要切多久**（[[hubs-cost-202
 
 1. **CNC 在做什麼**：[[cnc-milling]]（刀轉）和 [[cnc-turning]]（工件轉）
 2. **刀的形狀決定了一切**：[[end-mill]] → [[internal-corner-radius]] → [[cavity-depth]] → [[thin-wall]]
-3. **孔與螺紋**：[[hole-thread]]
+3. **孔與螺紋**：[[hole-thread]] → [[tap]]
 4. **圖面上的數字**：[[tolerance]] → [[general-tolerance]]
 5. **翻面與拆件**：[[machine-setup]]
 6. **材料、表面、數量**：[[machinability]] → [[surface-finish]] → [[batch-size]]

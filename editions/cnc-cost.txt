@@ -2,6 +2,7 @@ cnc-cost-guide
 cnc-milling
 cnc-turning
 end-mill
+tap
 batch-size
 cavity-depth
 general-tolerance
@@ -20,3 +21,4 @@ protolabs-cost-2026
 xometry-cost-2020
 todo
 log
+rapiddirect-threads-2022

@@ -14,6 +14,7 @@ updated: 自動產生
 ## 來源（sources）
 - [[iso2768-1989]]：一般公差標準 ISO 2768-1（1989）
 - [[xometry-cost-2020]]：降低 CNC 加工成本的十個方法（Xometry，Lichtig 2020）
+- [[rapiddirect-threads-2022]]：螺紋孔：種類、做法與注意事項（RapidDirect，Chan 2022）
 - [[hubs-cnc-basics-2026]]：什麼是 CNC 加工（Protolabs Network／Hubs）
 - [[hubs-cost-2026]]：CNC 加工省錢的 14 個設計技巧（Protolabs Network／Hubs）
 - [[hubs-design-2026]]：CNC 零件設計指南（Protolabs Network／Hubs）
@@ -25,6 +26,7 @@ updated: 自動產生
 
 ## 零件（parts）
 - [[end-mill]]：端銑刀
+- [[tap]]：絲攻
 
 ## 概念與設計規則（concepts）
 - [[general-tolerance]]：一般公差（ISO 2768）

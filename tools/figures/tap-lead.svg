@@ -1,0 +1,34 @@
+<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：左邊三支絲攻，先攻的尖端削尖得最長，後攻最短；右邊是盲孔，絲攻尖端那段切出的牙不完整，所以孔要比完整螺紋更深">
+<text x="20" y="28" class="f-h">絲攻的尖端是削尖的</text>
+<g>
+<text x="40" y="62" class="f-lab">先攻</text>
+<path d="M45,80 L75,80 L75,215 L66,300 L54,300 L45,215 Z" class="f-out"/>
+<path d="M45,95 l30,8 M45,115 l30,8 M45,135 l30,8 M45,155 l30,8 M45,175 l30,8 M45,195 l30,8" class="f-s"/>
+<path d="M45,215 L54,300 L66,300 L75,215 Z" class="f-hold"/>
+<text x="20" y="325" class="f-note">尖端長，好咬進去</text>
+<text x="140" y="62" class="f-lab">中攻</text>
+<path d="M145,80 L175,80 L175,255 L168,300 L152,300 L145,255 Z" class="f-out"/>
+<path d="M145,95 l30,8 M145,115 l30,8 M145,135 l30,8 M145,155 l30,8 M145,175 l30,8 M145,195 l30,8 M145,215 l30,8 M145,235 l30,8" class="f-s"/>
+<path d="M145,255 L152,300 L168,300 L175,255 Z" class="f-hold"/>
+<text x="240" y="62" class="f-lab">後攻</text>
+<path d="M245,80 L275,80 L275,285 L271,300 L249,300 L245,285 Z" class="f-out"/>
+<path d="M245,95 l30,8 M245,115 l30,8 M245,135 l30,8 M245,155 l30,8 M245,175 l30,8 M245,195 l30,8 M245,215 l30,8 M245,235 l30,8 M245,255 l30,8" class="f-s"/>
+<path d="M245,285 L249,300 L271,300 L275,285 Z" class="f-hold"/>
+<text x="215" y="325" class="f-note">尖端短，牙做得到孔底</text>
+</g>
+<text x="20" y="348" class="f-note">黃色：削尖的那一段，切出來的牙不完整</text>
+<line x1="345" y1="45" x2="345" y2="335" class="f-zero"/>
+<text x="380" y="62" class="f-lab">為什麼盲孔要鑽深一點</text>
+<path d="M380,80 L490,80 L490,285 L510,307 L530,285 L530,80 L640,80 L640,330 L380,330 Z" class="f-out"/>
+<path d="M490,95 l40,10 M490,115 l40,10 M490,135 l40,10 M490,155 l40,10 M490,175 l40,10 M490,195 l40,10" class="f-s"/>
+<path d="M490,215 l40,6 M490,235 l40,4" class="f-s" opacity=".55"/>
+<rect x="490" y="212" width="40" height="38" class="f-hold"/>
+<line x1="655" y1="80" x2="655" y2="210" class="f-a"/><line x1="647" y1="80" x2="663" y2="80" class="f-a"/><line x1="647" y1="210" x2="663" y2="210" class="f-a"/>
+<text x="668" y="140" class="f-lab">完整的牙</text>
+<text x="668" y="158" class="f-lab">（真正出力）</text>
+<text x="668" y="228" class="f-lab">絲攻尖端：</text>
+<text x="668" y="246" class="f-lab">牙不完整</text>
+<text x="668" y="292" class="f-lab">鑽頭的錐形</text>
+<text x="668" y="310" class="f-lab">攻不到牙</text>
+<text x="380" y="352" class="f-note">示意，非真實尺寸</text>
+</svg>
