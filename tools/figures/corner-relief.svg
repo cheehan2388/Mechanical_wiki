@@ -1,0 +1,20 @@
+<svg viewBox="0 0 760 370" xmlns="http://www.w3.org/2000/svg" role="img" class="fig-svg" aria-label="示意圖：從上往下看凹槽角落。左：角落是圓的，方形零件的尖角頂到圓角，兩邊留縫推不到底。右：角落多挖一個小洞（清角），零件尖角伸進洞裡，兩邊都貼到牆">
+<text x="20" y="28" class="f-h">為什麼要清角：把方形零件放進凹槽（從上往下看）</text>
+<text x="70" y="62" class="f-lab">只有圓角：卡住</text>
+<rect x="70" y="75" width="260" height="230" class="f-ka" opacity=".14"/>
+<path d="M110,305 L110,155 A40,40 0 0,1 150,115 L330,115 L330,305 Z" class="f-out"/>
+<rect x="110" y="155" width="12" height="122" class="f-kb"/>
+<rect x="150" y="115" width="122" height="12" class="f-kb"/>
+<rect x="122" y="127" width="150" height="150" class="f-in"/>
+<text x="150" y="208" class="f-lab">方形零件</text>
+<text x="70" y="330" class="f-lab">尖角頂到圓角，藍色是縫，</text>
+<text x="70" y="348" class="f-lab">零件推不到底</text>
+<text x="420" y="62" class="f-lab">加了清角：塞到底</text>
+<rect x="420" y="75" width="260" height="230" class="f-ka" opacity=".14"/>
+<path d="M460,305 L460,137 A22,22 0 1,1 482,115 L680,115 L680,305 Z" class="f-out"/>
+<rect x="460" y="115" width="150" height="150" class="f-in"/>
+<text x="490" y="196" class="f-lab">方形零件</text>
+<text x="420" y="330" class="f-lab">角落多挖一個小洞（清角），</text>
+<text x="420" y="348" class="f-lab">尖角伸進洞裡，兩邊都貼牆</text>
+<text x="700" y="362" class="f-note" text-anchor="end">灰色是材料、白色是挖掉的凹槽。示意，非真實尺寸</text>
+</svg>

@@ -45,13 +45,18 @@
 === corner | figure | internal-corner-radius | define:內角圓角, define:清角 ===
 ## 規則 1：內角畫圓角
 {{figure:corner-radius}}
-> **內角圓角**：凹槽角落被刀切出的圓弧，至少畫到槽深的 1/3。**清角**：真要尖角時，在角落多挖的 U 形缺口。
+> **內角圓角**：凹槽角落被刀切出的圓弧，至少畫到槽深的 1/3。**清角**：真要尖角時，在角落多挖的小洞。
 
 === corner2 | bullets | internal-corner-radius | ===
 ## 圓角畫多大？
 - 12 mm 深的槽，圓角畫 5 mm 以上，工廠就能用 8 mm 的刀切。
 - 所有內角用**同一個半徑**，就不用換刀。
 - 真的要塞方形零件：加 6.35 mm 寬的清角，可以做到約 32 mm 深。
+
+=== relief | figure | internal-corner-radius | ===
+## 為什麼要清角：方形零件塞不進圓角
+{{figure:corner-relief}}
+像抽屜的角是圓的，方盒子推不到底。清角用正常大小的刀在角落多挖一圈，比換小刀便宜。
 
 === depth | figure | cavity-depth | ===
 ## 規則 2：凹槽別挖太深
